@@ -5,7 +5,7 @@ import Link from '@atoms/link';
 import LinkTop from '@atoms/linkTop';
 import { media } from '@utils/media';
 
-const email = 'support@cobaltcounsel.com' as const;
+const email = 'support@clausehound.com' as const;
 const addresses = [
   'Legal Innovation Zone, 10 Dundas St. East (10th floor), Suite 1002 Toronto, ON M5B 2G9',
   '335 Madison Ave, FL. 4 New York, NY',

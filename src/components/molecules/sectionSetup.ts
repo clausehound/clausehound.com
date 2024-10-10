@@ -10,38 +10,37 @@ const SectionSetup = () => {
       content: true,
       contentTop: true,
     },
-    h(Intro, null, h("h2", null, "Services")),
     h(
       Setup,
       null,
       h(
         Step,
         null,
-        h(Work, null, "Tech Assisted Legal Drafting"),
+        h(Work, null, "Multi-Layered AI Prompting"),
         h(
           "p",
           null,
-          "Tech and AI powered legal services including hyperthorough document reviews and drafting - powered by libraries of documents converted from text into data."
+          "Prompt your document repository in self-curated collections, with quality control and contextual sourcing baked into each response."
         )
       ),
       h(
         Step,
         null,
-        h(Work, null, "Knowledge Management As A Service"),
+        h(Work, null, "Document Data Structuring"),
         h(
           "p",
           null,
-          "For legal teams and other professionals who are trying to organize, understand and improve their many document versions and drafts."
+          "Leverage a sophisticated data model to collect, analyze and tag document data for supreme content filtering abilities and comparative research."
         )
       ),
       h(
         Step,
         null,
-        h(Work, null, "Large Volume Document Processing"),
+        h(Work, null, "Enhanced Search Capabilities"),
         h(
           "p",
           null,
-          "For various research purposes to aid in discovery, updating, M&A diligence and many other abstracting and extract purposes."
+          `Conduct quality control-driven searches against mass volumes of document data and uncover the "needle in the haystack" results in record time.`
         )
       )
     )

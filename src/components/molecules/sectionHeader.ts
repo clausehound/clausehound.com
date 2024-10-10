@@ -4,7 +4,7 @@ import { media } from '@utils/media';
 import Button from '@atoms/button';
 import Subheading from '@atoms/subheading';
 import analysis from '@atoms/pretty/Analysis.svg';
-import LogoWithName from '@atoms/logoWithName.svg';
+import LogoWithName from '@atoms/logo.png';
 
 const SectionHeader = () => {
   const theme = useContext(ThemeContext);
@@ -23,7 +23,7 @@ const SectionHeader = () => {
       h(
         Content,
         null,
-        h(ImageLogo, { src: LogoWithName, alt: 'Cobalt AI' }),
+        h(ImageLogo, { src: LogoWithName, alt: 'Clausehound' }),
         h('h3', null, 'Knowledge Re-imagined'),
         h(Subheading, null, 'Better organization. Better insights. Better actions.'),
         h(

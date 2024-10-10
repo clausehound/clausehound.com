@@ -1,7 +1,7 @@
 {
-  "name": "cobaltcounsel.com",
+  "name": "clausehound.com",
   "private": true,
-  "description": "Cobaltcounsel.com public site",
+  "description": "Clausehound.com public site",
   "version": "0.0.1",
   "author": "Joshua Koudys <josh@clausehound.com>",
   "dependencies": {

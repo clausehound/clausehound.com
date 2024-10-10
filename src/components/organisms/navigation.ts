@@ -1,5 +1,5 @@
 import { createElement as h } from "react";
-import Logo from "@atoms/logo";
+import PawLogo from "@atoms/pawLogo";
 import styled from "styled-components";
 import Link from "@atoms/link";
 import { media } from "@utils/media";
@@ -9,7 +9,7 @@ const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
   h(
     Nav,
     null,
-    h(Logo),
+    h(PawLogo),
     h(
       NavLinks,
       null,
