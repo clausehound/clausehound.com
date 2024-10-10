@@ -1,7 +1,7 @@
 import { createElement as h } from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import logoUrl from "./Logo.svg";
+import logoUrl from "./pawLogo.svg";
 
 const Logo = () => {
   return h(Bound, { to: "/" }, h(FullImg, {
