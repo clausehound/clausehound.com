@@ -11,7 +11,6 @@ import Subheading from '@atoms/subheading';
 import SectionHeader from '@molecules/sectionHeader';
 import SectionSetup from '@molecules/sectionSetup';
 import SectionCheckout from '@molecules/sectionCheckout';
-import SectionTestimonial from '@molecules/sectionTestimonial';
 import toolingSvg from '@atoms/pretty/Tooling.svg';
 import workflowSvg from '@atoms/pretty/Workflow.svg';
 import rankedSvg from '@atoms/pretty/Ranked.svg';
@@ -250,7 +249,6 @@ const IndexPage = () => {
         ),
       ),
     ),
-    h(SectionTestimonial),
     h(SectionCheckout),
   );
 };
