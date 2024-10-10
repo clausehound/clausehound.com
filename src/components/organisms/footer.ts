@@ -10,7 +10,7 @@ const addresses = [
   'Legal Innovation Zone, 10 Dundas St. East (10th floor), Suite 1002 Toronto, ON M5B 2G9',
   '335 Madison Ave, FL. 4 New York, NY',
 ] as const;
-const copyright = `© Cobalt AI ${new Date().getFullYear()}. All rights reserved.`;
+const copyright = `© Clausehound ${new Date().getFullYear()}. All rights reserved.`;
 
 const Footer = () =>
   h(

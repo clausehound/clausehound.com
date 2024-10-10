@@ -37,7 +37,7 @@ const TeamSetup = () => {
         h(
           'p',
           null,
-          'Prior to founding Cobalt AI, Rajah received his legal training in the corporate law group at Stikeman Elliott LLP in Toronto, as well as internationally for the Technology Media and Telecom group in the Dubai office of Clyde & Co. His particular focus on technology and small business comes from a passion in business and entrepreneurship. A serial entrepreneur himself, Rajah is the founder of Cobalt AI (and the visionary behind our Dealprep product), the founder of Policysaurus (a not-for-profit that tackles public policy and large policy processing challenges), the founder of Clausehound.com – a knowledge management platform company, the co-founder of Multiplicity Accelerator, and is engaged in a number of other non-profit and charity-related volunteer activities.',
+          'Prior to founding Clausehound, Rajah received his legal training in the corporate law group at Stikeman Elliott LLP in Toronto, as well as internationally for the Technology Media and Telecom group in the Dubai office of Clyde & Co. His particular focus on technology and small business comes from a passion in business and entrepreneurship. A serial entrepreneur himself, Rajah is the founder of Clausehound (and the visionary behind our Dealprep product), the founder of Policysaurus (a not-for-profit that tackles public policy and large policy processing challenges), the founder of Clausehound.com – a knowledge management platform company, the co-founder of Multiplicity Accelerator, and is engaged in a number of other non-profit and charity-related volunteer activities.',
         ),
         h(
           'p',

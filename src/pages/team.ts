@@ -9,7 +9,7 @@ const TeamPage = () => {
   return h(
     Layout,
     null,
-    h(SEO, { title: "Cobalt AI - Team" }),
+    h(SEO, { title: "Clausehound - Team" }),
     h(TeamHeader),
     h(TeamSetup),
     h(SectionCheckout)

@@ -3,7 +3,6 @@ import PawLogo from "@atoms/Logo";
 import styled from "styled-components";
 import Link from "@atoms/link";
 import { media } from "@utils/media";
-import ProductsDropdown from "./productsDropdown";
 
 const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
   h(
@@ -17,13 +16,6 @@ const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
         "li",
         null,
         h(
-          ProductsDropdown
-        )
-      ),
-      h(
-        "li",
-        null,
-        h(
           NavLink,
           {
             href: "/team",
@@ -31,17 +23,6 @@ const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
           "Team"
         )
       ),
-      h(
-        "li",
-        null,
-        h(
-          NavLink,
-          {
-            href: "https://blog.dealprep.co", target: "_blank"
-          },
-          "Blog"
-        )
-      )
     )
   );
 

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Cobaltcounsel.com`,
+    title: `Clausehound.com`,
     description: `Industry leading legal tech software. Smart agreements, BI, drafting and negotiation tools for contracts.`,
     author: `@jkoudys`,
   },

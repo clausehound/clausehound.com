@@ -23,7 +23,7 @@ const IndexPage = () => {
   return h(
     Layout,
     null,
-    h(SEO, { title: 'Cobalt AI' }),
+    h(SEO, { title: 'Clausehound' }),
     h(SectionHeader),
     h(SectionSetup),
     h(
