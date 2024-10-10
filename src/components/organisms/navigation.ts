@@ -3,6 +3,7 @@ import PawLogo from "@atoms/logo";
 import styled from "styled-components";
 import Link from "@atoms/link";
 import { media } from "@utils/media";
+import ProductsDropdown from "./productsDropdown";
 
 const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
   h(
@@ -12,6 +13,13 @@ const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
     h(
       NavLinks,
       null,
+      h(
+        "li",
+        null,
+        h(
+          ProductsDropdown
+        )
+      ),
       h(
         "li",
         null,
