@@ -1,5 +1,5 @@
 import { createElement as h } from "react";
-import PawLogo from "@atoms/Logo";
+import PawLogo from "@atoms/logo";
 import styled from "styled-components";
 import Link from "@atoms/link";
 import { media } from "@utils/media";
