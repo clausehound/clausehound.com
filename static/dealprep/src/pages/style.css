@@ -68,6 +68,8 @@ a:hover {
 
 .logo {
 	width: 90%;
+	max-height: 50px;
+	padding: 20px;
 }
 
 /* ---- | TEXT STYLING | ---- */
