@@ -29,7 +29,7 @@ const ProductsDropdown = () => {
     h(
       DropdownContent,
       { isOpen: isOpen },
-      h('a', { href: 'https://cobaltcounsel.com/dealprep', target: '_blank' }, 'Dealprep'),
+      h('a', { href: '/dealprep', target: '_blank' }, 'Dealprep'),
       h('a', { href: '/policysaurus' }, 'Policysaurus'),
     ),
   );
