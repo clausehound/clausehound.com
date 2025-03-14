@@ -1,38 +1,11 @@
-import { createElement as h } from "react";
-import PawLogo from "@atoms/logo";
-import styled from "styled-components";
-import Link from "@atoms/link";
-import { media } from "@utils/media";
-import ProductsDropdown from "./productsDropdown";
+import { createElement as h } from 'react';
+import PawLogo from '@atoms/logo';
+import styled from 'styled-components';
+import Link from '@atoms/link';
+import { media } from '@utils/media';
+import ProductsDropdown from './productsDropdown';
 
-const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
-  h(
-    Nav,
-    null,
-    h(PawLogo),
-    h(
-      NavLinks,
-      null,
-      h(
-        "li",
-        null,
-        h(
-          ProductsDropdown
-        )
-      ),
-      h(
-        "li",
-        null,
-        h(
-          NavLink,
-          {
-            href: "/team",
-          },
-          "Team"
-        )
-      ),
-    )
-  );
+const Navigation = ({ siteTitle = '' }: { siteTitle: string }) => h(Nav, null, h(PawLogo));
 
 export default Navigation;
 
@@ -74,6 +47,6 @@ const NavLinks = styled.ul`
 `;
 
 const NavLink = styled(Link)({
-  marginRight: "1.75rem",
-  lineHeight: "1.1rem",
+  marginRight: '1.75rem',
+  lineHeight: '1.1rem',
 });
