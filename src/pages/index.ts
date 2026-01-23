@@ -1,5 +1,5 @@
 import { createElement as h } from 'react';
-import { useStaticQuery } from 'gatsby';
+// import { useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '@utils/layout';
 import SEO from '@utils/seo';
