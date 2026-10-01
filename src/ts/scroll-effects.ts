@@ -13,9 +13,9 @@ const REVEAL_SELECTOR = [
   ".leader",
   ".patent-card",
   ".tokens",
+  ".timeline li",
   ".routes li",
   ".app-mock",
-  ".choice",
 ].join(", ");
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));

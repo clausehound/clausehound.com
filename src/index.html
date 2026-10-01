@@ -30,7 +30,7 @@ permalink: /
     </div>
     <p class="hero-aside">
       Looking for lawyers, not software? <a href="{{ site.cobaltUrl }}">Cobalt</a> is the law firm
-      that runs on Clausehound. <a href="#cobalt">Which one do I need?</a>
+      that runs on Clausehound.
     </p>
   </div>
 
@@ -109,7 +109,7 @@ permalink: /
 </header>
 
 <section class="proof" aria-label="At a glance">
-  <div><strong>Efficient</strong><span>Rust and WebAssembly: tiny latency, small hosting bills, low token spend</span></div>
+  <div><strong>Since 2016</strong><span>machine learning on contracts since long before the hype; not a ChatGPT wrapper</span></div>
   <div><strong>Patented</strong><span>clause taxonomy engine, <span class="nowrap">US Pat. 12,670,200</span></span></div>
   <div><strong>Git for the law</strong><span>change control for legal documents: every amendment kept, dated, diffable</span></div>
   <div><strong>Canada-first</strong><span>federal, provincial and municipal law, not a US dataset with Canada bolted on</span></div>
@@ -316,68 +316,22 @@ permalink: /
   </ul>
 </section>
 
-<section class="content cobalt" id="cobalt">
-  <div class="section-intro">
-    <h6 class="subheading">Clausehound and Cobalt</h6>
-    <h2>Platform or lawyers? Here's who to call.</h2>
-    <p>
-      Clausehound Inc. builds and licenses the platform. <a href="{{ site.cobaltUrl }}">Cobalt</a>
-      is a separate, tech-focused law firm, and our biggest user. Clausehound doesn't give legal
-      advice; Cobalt's lawyers do.
-    </p>
-  </div>
-
-  <div class="chooser">
-    <article class="choice choice--clausehound">
-      <header>
-        <img src="/assets/paw.svg" alt="" width="43" height="50">
-        <div>
-          <h6 class="subheading">Software · Clausehound Inc.</h6>
-          <h3>Clausehound</h3>
-        </div>
-      </header>
-      <p class="choice-lede">Come to us for the platform, and the people who build it.</p>
-      <ul class="checklist">
-        <li>License Clausehound for your firm or in-house legal team</li>
-        <li>Connect your own apps and agents over GraphQL and MCP</li>
-        <li>Have our engineers set it up and run it for your team, on your documents and playbooks</li>
-        <li>A deployment of your own, at your own endpoint</li>
-      </ul>
-      <a class="button" href="#contact">Talk to Clausehound</a>
-    </article>
-
-    <article class="choice choice--cobalt">
-      <header>
-        <img src="/assets/cobalt-logo.svg" alt="" width="49" height="57">
-        <div>
-          <h6 class="subheading">Legal services · Cobalt</h6>
-          <h3>Cobalt</h3>
-        </div>
-      </header>
-      <p class="choice-lede">Go to Cobalt for lawyers, and for finished legal work.</p>
-      <ul class="checklist">
-        <li>M&amp;A, transactions and commercial disputes</li>
-        <li>Due diligence, deal knowledge and policy research, delivered and signed off by lawyers</li>
-        <li>DealPrep, Diligence Monster and Policysaurus are Cobalt services, built on Clausehound</li>
-        <li>Billed by the matter, with no software to buy</li>
-      </ul>
-      <a class="button button--ghost" href="{{ site.cobaltUrl }}">Visit cobaltcounsel.com ↗</a>
-    </article>
-  </div>
-
+<section class="content cobalt" id="in-production">
   <div class="cobalt-uses">
     <div class="cobalt-uses-copy">
-      <h6 class="subheading">How Cobalt uses Clausehound</h6>
-      <h3>Lawyers run real matters on it, every day.</h3>
+      <h6 class="subheading">In production</h6>
+      <h2>Lawyers run real matters on it, every day.</h2>
       <p>
-        Cobalt delivers its due diligence, deal knowledge and policy research on Clausehound,
-        with its lawyers verifying every finding in the app. It's the platform's toughest user,
-        and the reason every feature here was built for work that has to be right.
+        <a href="{{ site.cobaltUrl }}">Cobalt</a>, a tech-focused law firm, runs its legal services on
+        Clausehound: Diligence Monster for due diligence, DealPrep for deal knowledge and
+        Policysaurus for policy research, with its lawyers verifying
+        every finding in the app. It's the platform's toughest user, and the reason every
+        feature here was built for work that has to be right.
       </p>
       <p class="cobalt-uses-cta">
         <strong>Want the same for your own legal team?</strong> If you're in-house counsel or run a
         legal team, we'll set up an engagement that puts the platform Cobalt uses in your hands:
-        your documents, your playbooks, your deployment.
+        your documents, your playbooks, your deployment, run by the engineers who built it.
         <a href="#contact">Set up an engagement →</a>
       </p>
     </div>
@@ -713,7 +667,32 @@ permalink: /
   </div>
 </section>
 
-<section class="content team" id="team">
+<section class="content history" id="history">
+  <div class="history-intro">
+    <h6 class="subheading">Track record</h6>
+    <h2>Not a wrapper. A decade in the making.</h2>
+    <p>
+      Clausehound isn't a thin layer over someone else's chatbot, built last year to chase a
+      funding round. We've been structuring legal documents since 2016, doing machine learning on
+      contracts with academic partners before anyone called it AI, and we patented the core. What
+      we sell is what already works in production, not what's trending.
+    </p>
+  </div>
+  {% comment %}Dates: 2016 from the team bio; 2018 from the Seneca HELIX post;
+  2020 from "Automating contract review for a slow-moving industry" (Seneca
+  College, "long-time academic partner"); 2022 PCT/CA2022/050527; 2023 from
+  the Cobalt team page. Confirm the grant year before adding one.{% endcomment %}
+  <ol class="timeline">
+    <li><span class="timeline-year">2016</span><p>Clausehound starts: contracts as structured clauses, not files.</p></li>
+    <li><span class="timeline-year">2018</span><p>Joins Seneca HELIX, the start of a long research partnership with Seneca.</p></li>
+    <li><span class="timeline-year">2020</span><p>Machine learning on clauses with Seneca College: flagging problem clauses against a client's own precedent.</p></li>
+    <li><span class="timeline-year">2022</span><p>Clause taxonomy patent filed.</p></li>
+    <li><span class="timeline-year">2023</span><p>Large language models built into the platform, with people verifying every result.</p></li>
+    <li><span class="timeline-year">Now</span><p>Patented (US 12,670,200). Point-in-time law, MCP for agents, and Rust from end to end.</p></li>
+  </ol>
+</section>
+
+<section class="content tint team" id="team">
   <div class="section-intro">
     <h6 class="subheading">Who builds it</h6>
     <h2>Engineers and lawyers, since 2016.</h2>
