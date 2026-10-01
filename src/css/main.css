@@ -2336,3 +2336,29 @@ mark.tbd {
   opacity: 1;
   translate: 0 0;
 }
+
+/* --- The court's warning, in the verification section --------------------- */
+.court-quote {
+  background: var(--color-secondary);
+  border-left: 3px solid var(--color-removed);
+  border-radius: 0 8px 8px 0;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.court-quote p {
+  color: var(--color-black);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+
+.court-quote footer {
+  color: var(--color-light-gray);
+  font-size: 0.72rem;
+}
+
+.court-quote footer a {
+  color: var(--color-heading);
+  font-weight: 600;
+}
