@@ -1,0 +1,26 @@
+<footer class="footer">
+  <div class="footer-brand">
+    <a class="logo" href="/"><img src="/assets/paw.svg" alt="Clausehound" width="43" height="50"></a>
+    <p>The legal knowledge engine. Structured, versioned, cited.</p>
+  </div>
+  <div class="footer-col">
+    <h6 class="subheading">Platform</h6>
+    <a href="/#platform">How it works</a>
+    <a href="/#architecture">Architecture</a>
+    <a href="/#verification">Verification</a>
+    <a href="/#data">Canadian law</a>
+    <a href="/#integrations">MCP and API</a>
+    <a href="/#patent">Patent</a>
+  </div>
+  <div class="footer-col">
+    <h6 class="subheading">Company</h6>
+    <a href="/#team">Who builds it</a>
+    <a href="{{ site.appUrl }}">Log in</a>
+    <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    <a href="https://www.google.com/maps/place/{{ site.address | url_encode }}" target="map">Toronto, Canada</a>
+  </div>
+  <small class="footer-copyright">
+    &copy; {{ buildYear }} Clausehound Inc. Clausehound is protected by US Pat. No. 12,670,200.
+    <a href="{{ site.cobaltUrl }}">Cobalt</a>, a tech-focused law firm, runs its work on Clausehound.
+  </small>
+</footer>

@@ -1,0 +1,523 @@
+---
+layout: base.html
+description: Clausehound is a patented legal knowledge engine. Statutes, regulations and contracts as structured, versioned, cited data, served to your apps and AI agents over GraphQL and MCP. Built in Rust, Canada-first.
+permalink: /
+---
+
+{% comment %}
+  Written for the technical reader: CTOs, admins and engineers sizing up what
+  Clausehound is. The top is a plain overview; each section further down goes
+  one level deeper. Copy marked <mark class="tbd"> is a fact to confirm
+  before launch.
+{% endcomment %}
+
+<header class="hero">
+  {% comment %}The paw lattice: faint outlined paws on a slowly turning layer,
+  a few at a time filling with palette colours (src/ts/paw-pattern.ts).{% endcomment %}
+  <div class="hero-paws" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <h6 class="subheading">Clausehound · Legal knowledge engine</h6>
+    <h1>Legal knowledge, as data your agents can cite.</h1>
+    <p class="hero-lede">
+      Clausehound turns statutes, regulations and contracts into structured, versioned data:
+      every provision addressable, every amendment kept. Your apps and AI agents query it over
+      GraphQL and MCP, and get back the exact clauses with their sources, not a 400-page PDF.
+    </p>
+    <div class="hero-actions">
+      <a class="button" href="#contact">Talk to us</a>
+      <a class="hero-secondary" href="#architecture">See the architecture</a>
+    </div>
+  </div>
+
+  {% comment %}
+    One real MCP tool, compare_statute_versions, with the shape of its real
+    result (rust/clausehound/src/mcp.rs, CompareResult). The version names
+    and section text are trimmed for the example.
+  {% endcomment %}
+  <figure class="code-window" aria-label="Example: an AI agent asks Clausehound what changed in Ontario's Employment Standards Act">
+    <div class="code-bar"><span></span><span></span><span></span><em>agent → clausehound / mcp</em></div>
+<pre><code><span class="c-dim">tools/call</span> <span class="c-key">compare_statute_versions</span>
+{
+  <span class="c-prop">"citation_code"</span>: <span class="c-str">"00e41"</span>,  <span class="c-dim">// Employment Standards Act, 2000 (ON)</span>
+  <span class="c-prop">"from_version"</span>:  <span class="c-str">"2004-03-01"</span>,
+  <span class="c-prop">"to_version"</span>:    <span class="c-str">"2009-11-06"</span>
+}
+
+<span class="c-dim">← structuredContent</span>
+{
+  <span class="c-prop">"changes"</span>: [
+    {
+      <span class="c-prop">"change_type"</span>:  <span class="c-amend">"amended"</span>,
+      <span class="c-prop">"section_path"</span>: <span class="c-str">"Part VII › 17"</span>,
+      <span class="c-prop">"to_text"</span>:      <span class="c-str">"…48 hours in a work week…"</span>
+    },
+    {
+      <span class="c-prop">"change_type"</span>:  <span class="c-add">"added"</span>,
+      <span class="c-prop">"section_path"</span>: <span class="c-str">"Part XVIII.1 › 74.1"</span>,
+      <span class="c-prop">"to_text"</span>:      <span class="c-str">"\"assignment employee\" means…"</span>
+    }
+  ]
+}</code></pre>
+    <figcaption>One tool call: two cited changes, not two consolidations of the Act.</figcaption>
+  </figure>
+</header>
+
+<section class="proof" aria-label="At a glance">
+  <div><strong>Rust</strong><span>services end to end, from GraphQL to diffing in the browser</span></div>
+  <div><strong>Patented</strong><span>clause taxonomy engine, <span class="nowrap">US Pat. 12,670,200</span></span></div>
+  <div><strong>Point in time</strong><span>every version of every statute kept, diffable clause by clause</span></div>
+  <div><strong>Canada-first</strong><span>federal, provincial and municipal law, not a US dataset with Canada bolted on</span></div>
+</section>
+
+<section class="content platform" id="platform">
+  <div class="section-intro">
+    <h6 class="subheading">What it is</h6>
+    <h2>One model for every legal document.</h2>
+    <p>
+      A statute, a regulation and a supply agreement are the same thing to Clausehound: a document
+      with versions, broken into a tree of clauses that can be tagged, compared and cited. Build
+      on the model once, and it works for all of them.
+    </p>
+  </div>
+
+  {% comment %}The real model: Contract → ContractVersion → Cluster → Clause,
+  with tag groups (clusterCategories) inherited down the tree. Public names
+  are the ones in docs/LawyerOverview.md.{% endcomment %}
+  <ol class="model" aria-label="The Clausehound document model">
+    <li>
+      <span class="model-name">Document</span>
+      <span class="model-eg">Employment Standards Act, 2000 · S.O. 2000, c. 41</span>
+    </li>
+    <li>
+      <span class="model-name">Version</span>
+      <span class="model-eg">As it read from 2009-11-06 · immutable</span>
+    </li>
+    <li>
+      <span class="model-name">Cluster</span>
+      <span class="model-eg">Part VII › Hours of work › s. 17</span>
+    </li>
+    <li>
+      <span class="model-name">Clause</span>
+      <span class="model-eg">17 (1) The provision text, with its stable identity</span>
+    </li>
+    <li class="model-tags">
+      <span class="model-name">Tags</span>
+      <span class="model-eg">Attached at any level and inherited down the tree</span>
+    </li>
+  </ol>
+
+  <ol class="pillars">
+    <li>
+      <h4>Ingest</h4>
+      <p>Statutes from official consolidations, contracts from PDF and Word. Parsing and OCR turn them into the clause tree, headings and all.</p>
+    </li>
+    <li>
+      <h4>Version</h4>
+      <p>Every consolidation or draft becomes an append-only version. Nothing is overwritten, so any two dates can be compared.</p>
+    </li>
+    <li>
+      <h4>Tag</h4>
+      <p>A controlled taxonomy marks what each clause does. AI proposes tags; people confirm them, on the record.</p>
+    </li>
+    <li>
+      <h4>Serve</h4>
+      <p>GraphQL for your apps, MCP for your agents, and CSV, JSON or Excel for everyone else.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="content tint architecture" id="architecture">
+  <div class="section-intro">
+    <h6 class="subheading">Architecture</h6>
+    <h2>Fast, small, and cheap to run.</h2>
+    <p>
+      The hard work happens once, at ingest. After that, a question is a database lookup over
+      structured clauses, not a model reading a document from scratch. That's what keeps
+      responses fast and token bills low.
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h6 class="subheading">Core</h6>
+      <h3>Rust, async, end to end.</h3>
+      <p>
+        The API is Rust on Actix and Tokio, with GraphQL queries batched through dataloaders and
+        models generated by our own derive macros. Small memory footprint, predictable latency.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Deployment</h6>
+      <h3>Distributed by design.</h3>
+      <p>
+        Each client gets its own deployment and endpoint, like
+        <code>yourbusiness.clausehound.com</code>. Services run as separate containers, so your
+        data stays in your instance and each part scales on its own.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Tokens</h6>
+      <h3>Agents ask for clauses, not documents.</h3>
+      <p>
+        A tool call returns the provisions that answer the question, with section paths and
+        sources. Your agent's context stays small, so calls are cheaper and faster than pasting
+        whole Acts into a prompt.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Client</h6>
+      <h3>Diffs in the browser.</h3>
+      <p>
+        Version comparison runs as Rust compiled to WebAssembly, and app state is reduced in a
+        shared worker, so the interface stays responsive on documents with thousands of clauses.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Security</h6>
+      <h3>Untrusted files stay boxed in.</h3>
+      <p>
+        PDF parsing and OCR run in their own service on an isolated internal network. Sign-in is
+        JWT-based, with Azure AD and OpenID Connect for single sign-on.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Change control</h6>
+      <h3>Append-only history.</h3>
+      <p>
+        Versions are immutable and chained. When a new consolidation lands, anything that cited
+        a changed clause is surfaced for review, automatically.
+      </p>
+    </article>
+  </div>
+
+  {% comment %}Relative, not measured: the bars show the shape of the saving,
+  not a benchmark. Replace with real numbers from a measured run before
+  quoting a figure anywhere.{% endcomment %}
+  <figure class="tokens" aria-label="Illustration: the context an agent needs, with and without Clausehound">
+    <figcaption>
+      <span>Same question: "What changed in Ontario hours-of-work rules, 2004 to 2009?"</span>
+      <span class="tokens-note">Illustrative</span>
+    </figcaption>
+    <div class="tokens-row">
+      <span class="tokens-label">Paste both versions of the Act into the prompt</span>
+      <span class="tokens-bar tokens-bar--long"></span>
+    </div>
+    <div class="tokens-row">
+      <span class="tokens-label">Ask Clausehound</span>
+      <span class="tokens-bar tokens-bar--short"></span>
+    </div>
+  </figure>
+</section>
+
+<section class="content verification" id="verification">
+  <div class="verification-copy">
+    <h6 class="subheading">Verification</h6>
+    <h2>No citation, no claim.</h2>
+    <p>
+      Language models are fluent and sometimes wrong, and in law a confident wrong answer is
+      the expensive kind. Clausehound puts guardrails between the model and the answer.
+    </p>
+    <ul class="points">
+      <li>
+        <strong>Grounded in the source.</strong> Every answer resolves to a specific clause, in a
+        specific version, with its section path and source. The model doesn't get to paraphrase
+        the law from memory.
+      </li>
+      <li>
+        <strong>Citations are checked.</strong> A section the model cites has to exist in the
+        version in force on the date asked about. If it doesn't, the answer is flagged, not
+        passed through.
+      </li>
+      <li>
+        <strong>AI proposes, people verify.</strong> Tags and findings carry a review state.
+        Lawyers confirm or correct them in the app, and who verified what, and when, is kept.
+      </li>
+    </ul>
+  </div>
+
+  {% comment %}
+    Illustrative evidence rows. The third row shows the guardrail catching a
+    bad citation: 74.19 is not in the 2004 version (Part XVIII.1 arrived in
+    2009). Confirm the wording matches how the product reports it.
+  {% endcomment %}
+  <figure class="evidence" aria-label="Example: three findings and their review state">
+    <figcaption>
+      <span>Findings · Ontario employer, 2004</span>
+      <span class="evidence-status">2 verified · 1 flagged</span>
+    </figcaption>
+    <ol>
+      <li>
+        <span class="evidence-src">ESA 2000, Part VII, s. 17 · version 2004-03-01</span>
+        <span class="evidence-find">Weekly hours capped at 48 without an agreement</span>
+        <span class="pill pill--verified">Verified</span>
+      </li>
+      <li>
+        <span class="evidence-src">ESA 2000, Part VII, s. 17 (3) · version 2004-03-01</span>
+        <span class="evidence-find">Excess hours need written agreement and Director approval</span>
+        <span class="pill pill--verified">Verified</span>
+      </li>
+      <li>
+        <span class="evidence-src">ESA 2000, s. 74.19 · not in version 2004-03-01</span>
+        <span class="evidence-find">Temporary help agency obligations</span>
+        <span class="pill pill--flagged">Flagged</span>
+      </li>
+    </ol>
+    <p class="evidence-note">Illustrative example. The flagged row cites a section that wasn't in force on the date asked about.</p>
+  </figure>
+</section>
+
+<section class="content tint data" id="data">
+  <div class="section-intro">
+    <h6 class="subheading">The knowledge base</h6>
+    <h2>Not US-centric. Canadian law, done properly.</h2>
+    <p>
+      Most legal AI is trained and tested on American law, and treats Canada as an edge case.
+      Clausehound's corpus is built from official Canadian consolidations, federal and
+      provincial, with every historical version kept, so it answers the questions Canadian
+      businesses actually face.
+    </p>
+  </div>
+
+  <div class="data-split">
+    <div>
+      <h4>Jurisdictions</h4>
+      <ul class="chips" aria-label="Jurisdictions in the corpus">
+        <li>Federal</li>
+        <li>Ontario</li>
+        <li>Québec</li>
+        <li>British Columbia</li>
+        <li>Alberta</li>
+        <li>Saskatchewan</li>
+        <li>Manitoba</li>
+        <li>New Brunswick</li>
+        <li>Municipal bylaws</li>
+      </ul>
+      <h4>Subject areas</h4>
+      {% comment %}The 17 domains from docs/RegulatoryCoverageMap.md, minus
+      "Other / specialty".{% endcomment %}
+      <ul class="chips chips--quiet" aria-label="Subject areas">
+        <li>Occupational health and safety</li>
+        <li>Employment standards and labour</li>
+        <li>Corporate and securities</li>
+        <li>Real estate and construction</li>
+        <li>Privacy and access to information</li>
+        <li>Income and corporate tax</li>
+        <li>Sales and property tax</li>
+        <li>Environmental</li>
+        <li>Limitations</li>
+        <li>Building and fire codes</li>
+        <li>Insurance and financial institutions</li>
+        <li>Pensions</li>
+        <li>AML and evidence</li>
+        <li>Workers' compensation</li>
+        <li>EI and CPP</li>
+        <li>IP</li>
+      </ul>
+    </div>
+    <dl class="data-stats">
+      <div><dt>84</dt><dd>versions of Ontario's Employment Standards Act since 2002, every one kept</dd></div>
+      <div><dt>71</dt><dd>consolidations of Ontario's Insurance Act, each navigable on its own</dd></div>
+      <div><dt><mark class="tbd">400+</mark></dt><dd>statutes and regulations tagged for records, employment and compliance work</dd></div>
+      <div><dt>Yours</dt><dd>your own contracts and precedent, in the same model, alongside the law</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="content integrations" id="integrations">
+  <div class="section-intro">
+    <h6 class="subheading">Integrations</h6>
+    <h2>Bring your own agent.</h2>
+    <p>
+      Clausehound speaks MCP, the open standard AI assistants use to connect to tools. Point
+      Claude, or any MCP client, at your endpoint and it can search, compare and cite the law
+      directly. Your apps get the same data over GraphQL.
+    </p>
+  </div>
+
+  {% comment %}Tool names are the shipped ones in rust/clausehound/src/mcp.rs
+  (docs/retention/mcp/tool-catalog.md). The dialogs are simplified, not
+  copies of either product's actual UI.{% endcomment %}
+  <div class="mock-stage">
+    <figure class="mock mock--left">
+      <div class="mock-window" aria-hidden="true">
+        <div class="mock-bar"><span></span><span></span><span></span><em>Claude · Settings · Connectors</em></div>
+        <div class="mock-body">
+          <h4>Add custom connector</h4>
+          <label>Name</label>
+          <div class="mock-field">Clausehound</div>
+          <label>Remote MCP server URL</label>
+          <div class="mock-field mock-field--mono"><span>https://yourbusiness.clausehound.com/mcp</span></div>
+          <div class="mock-note">Tools: find_statutes, list_statute_versions, search_statute_text, compare_statute_versions</div>
+          <div class="mock-actions">
+            <span class="mock-btn">Cancel</span>
+            <span class="mock-btn mock-btn--primary">Add</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>Add Clausehound to Claude as a connector.</figcaption>
+    </figure>
+
+    <figure class="mock mock--right">
+      <div class="mock-window mock-window--dark" aria-hidden="true">
+        <div class="mock-bar"><span></span><span></span><span></span><em>Clausehound · Agent access</em></div>
+        <div class="mock-body">
+          <h4>Connect your agent</h4>
+          <label>MCP endpoint</label>
+          <div class="mock-field mock-field--mono"><span>https://yourbusiness.clausehound.com/mcp</span> <b>Copy</b></div>
+          <label>Access token</label>
+          <div class="mock-field mock-field--mono"><span>ch_live_••••••••••••••••7f3a</span></div>
+          <label>Access</label>
+          <ul class="mock-scopes">
+            <li class="on">Read statutes and every version</li>
+            <li class="on">Search your precedent</li>
+            <li>Fill schedules and spreadsheets</li>
+          </ul>
+          <div class="mock-actions">
+            <span class="mock-btn">Revoke</span>
+            <span class="mock-btn mock-btn--primary">Generate token</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>Or point any agent at Clausehound from its settings.</figcaption>
+    </figure>
+  </div>
+
+  <ul class="integration-list">
+    <li><strong>MCP server</strong> JSON-RPC over HTTP. Find statutes, list versions, search text, diff any two versions, fill schedules.</li>
+    <li><strong>GraphQL API</strong> The same model your apps use, with subscriptions over WebSocket for live updates.</li>
+    <li><strong>Exports</strong> CSV, JSON and Excel of any analysis, straight into the spreadsheet your team already has.</li>
+    <li><strong>Documents in</strong> PDF, Word and official statute consolidations, parsed into the clause tree.</li>
+    <li><strong>Single sign-on</strong> Azure AD and OpenID Connect, with JWT for service-to-service calls.</li>
+    <li><strong>Point-in-time law</strong> Every version of every statute we track, comparable between any two dates.</li>
+  </ul>
+</section>
+
+<section class="content tint patent" id="patent">
+  <div class="patent-card">
+    <div>
+      <h6 class="subheading">The patent</h6>
+      <h2>A taxonomy for clauses, patented.</h2>
+      <p>
+        The heart of Clausehound is protected by
+        <cite>Clause Taxonomy System and Method for Structured Document Construction and Analysis</cite>,
+        <span class="nowrap">US Pat. No. 12,670,200</span>.
+      </p>
+      <p>
+        In plain terms: a way of breaking legal documents into typed, nested clauses, so they
+        can be built, versioned, compared and analysed as data, rather than as text. It's why
+        the same machinery handles a statute and a contract, and why a change to one clause can
+        be traced everywhere it matters.
+      </p>
+    </div>
+    <dl class="patent-facts">
+      <div><dt>Patent</dt><dd>US 12,670,200</dd></div>
+      <div><dt>Covers</dt><dd>Clause taxonomy, structured construction and analysis</dd></div>
+      <div><dt>Owner</dt><dd>Clausehound Inc.</dd></div>
+      <div><dt>Co-inventor</dt><dd>Joshua Koudys, CTO</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="content built-on" id="built-on">
+  <div class="section-intro">
+    <h6 class="subheading">In production</h6>
+    <h2>Lawyers run real matters on it.</h2>
+    <p>
+      <a href="{{ site.cobaltUrl }}">Cobalt</a>, a tech-focused law firm, delivers its due
+      diligence, deal knowledge and policy research on Clausehound, with its lawyers verifying
+      every finding in the app. It's the platform's toughest user, every day.
+    </p>
+  </div>
+  <ul class="in-use">
+    <li>
+      <h4>Due diligence</h4>
+      <p>Extraction from data rooms into reviewed disclosure schedules.</p>
+    </li>
+    <li>
+      <h4>Deal knowledge</h4>
+      <p>Clause libraries built from a firm's own precedent, by cluster.</p>
+    </li>
+    <li>
+      <h4>Policy research</h4>
+      <p>Concordance across jurisdictions: the same rule, compared province by province.</p>
+    </li>
+    <li>
+      <h4>Records retention</h4>
+      <p>Retention schedules filled from tagged statutes, with a citation for every period.</p>
+    </li>
+  </ul>
+</section>
+
+<section class="content tint team" id="team">
+  <div class="section-intro">
+    <h6 class="subheading">Who builds it</h6>
+    <h2>Engineers and lawyers, since 2016.</h2>
+  </div>
+  <div class="leaders">
+    <article class="leader">
+      <header class="leader-head">
+        <img class="leader-photo" src="/assets/Josh.jpg" alt="Joshua Koudys" width="400" height="400">
+        <div>
+          <h3>Joshua Koudys</h3>
+          <p class="subheading">Chief Technology Officer · Co-inventor</p>
+        </div>
+      </header>
+      <p>
+        Joshua leads Clausehound's engineering and co-invented its patented clause taxonomy. He
+        has built the platform since 2016: its Rust services, its version model and its MCP
+        server, with one rule for AI in legal work: every result tied to its source.
+      </p>
+      <p>
+        He started at IBM, inside the DB2 database engine and later as a web-security
+        subject-matter expert, work that earned him a patent. In 2011 he founded Qaribou, building
+        geodata, document-processing and fintech products for civic nonprofits and large
+        enterprises alike. B.Eng., Western University.
+      </p>
+      <a class="leader-link" href="{{ site.joshUrl }}">More about Joshua</a>
+    </article>
+    <article class="leader">
+      <header class="leader-head">
+        <img class="leader-photo" src="/assets/Rajah.jpg" alt="Rajah Lehal" width="400" height="400">
+        <div>
+          <h3>Rajah Lehal</h3>
+          <p class="subheading">Founder</p>
+        </div>
+      </header>
+      <p>
+        Rajah is a legal technologist and a technology and M&amp;A lawyer, trained at Stikeman
+        Elliott. Before law he spent a decade in IT, as a developer and then an information
+        systems manager. He founded Clausehound, and leads Cobalt, the firm that runs on it.
+      </p>
+      <p>M.B.A. and J.D., Western University (Ivey and Western Law).</p>
+    </article>
+  </div>
+  <p class="team-also">With engineers Ian Hume and Isaiah Liu.</p>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-body">
+    <div class="contact-copy">
+      <h6>Talk to us</h6>
+      <h2>See it run on your documents.</h2>
+      <p>
+        We'll walk your team through the platform, the API and the MCP server, and talk about a
+        deployment of your own.
+      </p>
+      <p class="contact-alt">
+        Already a customer? <a href="{{ site.appUrl }}">Log in</a>. Or email
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+      </p>
+    </div>
+    {% comment %}Click-to-load Calendly (src/ts/calendly.ts): nothing is
+    fetched from calendly.com until the visitor asks; without JS the plain
+    link is the whole flow.{% endcomment %}
+    <div
+      class="contact-widget"
+      data-calendly-url="{{ site.calendlyUrl }}?hide_event_type_details=1&hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=FFBA52&background_color=14223A&text_color=FFFFFF"
+    >
+      <button type="button" class="button calendly-load" hidden>Pick a time</button>
+      <p class="calendly-note">Opens Calendly's booking calendar here. Calendly may set cookies.</p>
+      <a href="{{ site.calendlyUrl }}">Book a call on Calendly</a>
+    </div>
+  </div>
+</section>
