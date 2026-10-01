@@ -19,6 +19,7 @@ illustrative.
 | 7 | "84 versions of the ESA", "71 consolidations of the Insurance Act" | Knowledge base | Re-verify |
 | 8 | "Diffs in the browser… documents with thousands of clauses" | Architecture / app | Unmeasured |
 | 9 | "A deployment of your own" (per-client instances) | Integrations / contact | Unmeasured |
+| 10 | "Yes, behind your own firewall" / no shared database | Architecture: Distributed | Verify |
 
 ---
 
@@ -202,6 +203,35 @@ the manual steps it took. Useful for the sales conversation too.
 | Step | Time | Manual? |
 |---|---|---|
 | | | |
+
+## 10. Behind the client's firewall
+
+**Claim:** a client can run Clausehound on its own infrastructure, behind its
+firewall, with no shared Clausehound database.
+
+**Test:**
+- Stand up an instance on a network with outbound traffic blocked (firewall
+  default-deny egress), then run the test 1 query mix and an ingest.
+- Log every outbound connection attempt (e.g. `tcpdump` or the firewall's deny
+  log) for a full working session in the app, including AI features.
+- List anything that needs to reach out: licence checks, telemetry, fonts or
+  scripts from CDNs, update checks, and the language model itself.
+
+**Watch for:** AI features call a model. If that model is an external API, the
+text sent to it leaves the firewall. The honest answer is either "point it at a
+model you host" (confirm we support a configurable model endpoint) or "only
+the prompts go out, never the stored corpus". Say which on the site before a
+security team asks.
+
+**Report:** "Runs with no outbound access" (or the exact list of required
+endpoints), and which AI features work fully offline.
+
+| Feature | Works with egress blocked? | Outbound calls needed |
+|---|---|---|
+| Browse, search, diff | | |
+| Ingest PDF / Word | | |
+| MCP / GraphQL | | |
+| AI review (guided / autonomous) | | |
 
 ---
 
