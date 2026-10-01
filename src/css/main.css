@@ -406,7 +406,7 @@ mark.tbd {
   font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 700;
   line-height: 1.1;
-  max-width: 16ch;
+  max-width: 19ch;
 }
 
 .hero-copy {
