@@ -1699,16 +1699,13 @@ mark.tbd {
 }
 
 /* --- Contact (dark band) --------------------------------------------------- */
-.contact {
-  padding: var(--spacingSection) var(--spacingContent);
-}
-
+/* A full-bleed dark band, edge to edge between the last section and the
+   footer; the copy stays in the page's column. */
 .contact-body {
-  border-radius: 8px;
   color: var(--color-white);
   display: grid;
-  margin: 0 auto;
-  max-width: 105rem;
+  gap: var(--spacingGap);
+  padding: var(--spacingSection) max(var(--spacingContent), calc((100% - 105rem) / 2 + var(--spacingContent)));
 }
 
 @media (min-width: 1100px) {
@@ -1716,11 +1713,6 @@ mark.tbd {
     align-items: start;
     grid-template-columns: 1fr 1fr;
   }
-}
-
-.contact-copy,
-.contact-widget {
-  padding: var(--spacingContent);
 }
 
 .contact-copy h6 {
@@ -1764,7 +1756,6 @@ mark.tbd {
 
 /* --- Footer ---------------------------------------------------------------- */
 .footer {
-  border-top: 1px solid var(--color-hairline);
   display: grid;
   gap: 2rem var(--spacingGap);
   margin: 0 auto;
