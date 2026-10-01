@@ -28,6 +28,10 @@ permalink: /
       <a class="button" href="#contact">Talk to us</a>
       <a class="hero-secondary" href="#app">See the three ways in</a>
     </div>
+    <p class="hero-aside">
+      Looking for lawyers, not software? <a href="{{ site.cobaltUrl }}">Cobalt</a> is the law firm
+      that runs on Clausehound. <a href="#cobalt">Which one do I need?</a>
+    </p>
   </div>
 
   {% comment %}
@@ -312,7 +316,93 @@ permalink: /
   </ul>
 </section>
 
-<section class="content architecture" id="architecture">
+<section class="content cobalt" id="cobalt">
+  <div class="section-intro">
+    <h6 class="subheading">Clausehound and Cobalt</h6>
+    <h2>Platform or lawyers? Here's who to call.</h2>
+    <p>
+      Clausehound Inc. builds and licenses the platform. <a href="{{ site.cobaltUrl }}">Cobalt</a>
+      is a separate, tech-focused law firm, and our biggest user. Clausehound doesn't give legal
+      advice; Cobalt's lawyers do.
+    </p>
+  </div>
+
+  <div class="chooser">
+    <article class="choice choice--clausehound">
+      <header>
+        <img src="/assets/paw.svg" alt="" width="43" height="50">
+        <div>
+          <h6 class="subheading">Software · Clausehound Inc.</h6>
+          <h3>Clausehound</h3>
+        </div>
+      </header>
+      <p class="choice-lede">Come to us for the platform, and the people who build it.</p>
+      <ul class="checklist">
+        <li>License Clausehound for your firm or in-house legal team</li>
+        <li>Connect your own apps and agents over GraphQL and MCP</li>
+        <li>Have our engineers set it up and run it for your team, on your documents and playbooks</li>
+        <li>A deployment of your own, at your own endpoint</li>
+      </ul>
+      <a class="button" href="#contact">Talk to Clausehound</a>
+    </article>
+
+    <article class="choice choice--cobalt">
+      <header>
+        <img src="/assets/cobalt-logo.svg" alt="" width="49" height="57">
+        <div>
+          <h6 class="subheading">Legal services · Cobalt</h6>
+          <h3>Cobalt</h3>
+        </div>
+      </header>
+      <p class="choice-lede">Go to Cobalt for lawyers, and for finished legal work.</p>
+      <ul class="checklist">
+        <li>M&amp;A, transactions and commercial disputes</li>
+        <li>Due diligence, deal knowledge and policy research, delivered and signed off by lawyers</li>
+        <li>DealPrep, Diligence Monster and Policysaurus are Cobalt services, built on Clausehound</li>
+        <li>Billed by the matter, with no software to buy</li>
+      </ul>
+      <a class="button button--ghost" href="{{ site.cobaltUrl }}">Visit cobaltcounsel.com ↗</a>
+    </article>
+  </div>
+
+  <div class="cobalt-uses">
+    <div class="cobalt-uses-copy">
+      <h6 class="subheading">How Cobalt uses Clausehound</h6>
+      <h3>Lawyers run real matters on it, every day.</h3>
+      <p>
+        Cobalt delivers its due diligence, deal knowledge and policy research on Clausehound,
+        with its lawyers verifying every finding in the app. It's the platform's toughest user,
+        and the reason every feature here was built for work that has to be right.
+      </p>
+      <p class="cobalt-uses-cta">
+        <strong>Want the same for your own legal team?</strong> If you're in-house counsel or run a
+        legal team, we'll set up an engagement that puts the platform Cobalt uses in your hands:
+        your documents, your playbooks, your deployment.
+        <a href="#contact">Set up an engagement →</a>
+      </p>
+    </div>
+    <ul class="in-use">
+      <li>
+        <h4>Due diligence</h4>
+        <p>Extraction from data rooms into reviewed disclosure schedules.</p>
+      </li>
+      <li>
+        <h4>Deal knowledge</h4>
+        <p>Clause libraries built from a firm's own precedent, by cluster.</p>
+      </li>
+      <li>
+        <h4>Policy research</h4>
+        <p>Concordance across jurisdictions: the same rule, compared province by province.</p>
+      </li>
+      <li>
+        <h4>Records retention</h4>
+        <p>Retention schedules filled from tagged statutes, with a citation for every period.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="content tint architecture" id="architecture">
   <div class="section-intro">
     <h6 class="subheading">Architecture</h6>
     <h2>Fast, small, and cheap to run.</h2>
@@ -395,7 +485,7 @@ permalink: /
   </figure>
 </section>
 
-<section class="content tint verification" id="verification">
+<section class="content verification" id="verification">
   <div class="verification-copy">
     <h6 class="subheading">Verification</h6>
     <h2>No citation, no claim.</h2>
@@ -452,7 +542,7 @@ permalink: /
   </figure>
 </section>
 
-<section class="content data" id="data">
+<section class="content tint data" id="data">
   <div class="section-intro">
     <h6 class="subheading">The knowledge base</h6>
     <h2>Not US-centric. Canadian law, done properly.</h2>
@@ -509,7 +599,7 @@ permalink: /
   </div>
 </section>
 
-<section class="content tint integrations" id="integrations">
+<section class="content integrations" id="integrations">
   <div class="section-intro">
     <h6 class="subheading">Integrations</h6>
     <h2>Bring your own agent.</h2>
@@ -578,7 +668,7 @@ permalink: /
   </ul>
 </section>
 
-<section class="content patent" id="patent">
+<section class="content tint patent" id="patent">
   <div class="patent-card">
     <div>
       <h6 class="subheading">The patent</h6>
@@ -602,36 +692,6 @@ permalink: /
       <div><dt>Co-inventor</dt><dd>Joshua Koudys, CTO</dd></div>
     </dl>
   </div>
-</section>
-
-<section class="content tint built-on" id="built-on">
-  <div class="section-intro">
-    <h6 class="subheading">In production</h6>
-    <h2>Lawyers run real matters on it.</h2>
-    <p>
-      <a href="{{ site.cobaltUrl }}">Cobalt</a>, a tech-focused law firm, delivers its due
-      diligence, deal knowledge and policy research on Clausehound, with its lawyers verifying
-      every finding in the app. It's the platform's toughest user, every day.
-    </p>
-  </div>
-  <ul class="in-use">
-    <li>
-      <h4>Due diligence</h4>
-      <p>Extraction from data rooms into reviewed disclosure schedules.</p>
-    </li>
-    <li>
-      <h4>Deal knowledge</h4>
-      <p>Clause libraries built from a firm's own precedent, by cluster.</p>
-    </li>
-    <li>
-      <h4>Policy research</h4>
-      <p>Concordance across jurisdictions: the same rule, compared province by province.</p>
-    </li>
-    <li>
-      <h4>Records retention</h4>
-      <p>Retention schedules filled from tagged statutes, with a citation for every period.</p>
-    </li>
-  </ul>
 </section>
 
 <section class="content team" id="team">
@@ -686,12 +746,14 @@ permalink: /
       <h6>Talk to us</h6>
       <h2>See it run on your documents.</h2>
       <p>
-        We'll walk your team through the platform, the API and the MCP server, and talk about a
-        deployment of your own.
+        Licensing the platform, connecting your stack, or an engagement where our engineers set it
+        up and run it for your legal team: we'll walk you through the app, the API and the MCP
+        server, and talk about a deployment of your own.
       </p>
       <p class="contact-alt">
         Already a customer? <a href="{{ site.appUrl }}">Log in</a>. Or email
         <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+        Need a lawyer? <a href="{{ site.cobaltUrl }}">Talk to Cobalt</a>.
       </p>
     </div>
     {% comment %}Click-to-load Calendly (src/ts/calendly.ts): nothing is

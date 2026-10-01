@@ -994,6 +994,174 @@ mark.tbd {
   margin: 0;
 }
 
+/* --- Clausehound or Cobalt? ----------------------------------------------- */
+.hero-aside {
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  margin: 1.75rem 0 0;
+  max-width: 34rem;
+}
+
+.chooser {
+  display: grid;
+  gap: var(--spacingGap);
+  margin: var(--spacingGap) auto 0;
+  max-width: 72rem;
+}
+
+@media (min-width: 900px) {
+  .chooser {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.choice {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  border-top: 4px solid var(--color-primary);
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.choice--cobalt {
+  border-top-color: var(--color-heading);
+}
+
+.choice header {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.choice header img {
+  flex: none;
+  width: 2.75rem;
+}
+
+.choice-mark {
+  align-items: center;
+  background: var(--color-heading);
+  border-radius: 6px;
+  color: var(--color-white);
+  display: flex;
+  flex: none;
+  font-weight: 700;
+  height: 3rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+
+.choice .subheading {
+  font-size: 0.62rem;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.choice h3 {
+  color: var(--color-heading);
+  font-weight: 700;
+  margin: 0;
+}
+
+.choice-lede {
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.choice .checklist {
+  flex: 1;
+}
+
+.choice .button {
+  align-self: flex-start;
+}
+
+.button--ghost {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--color-heading);
+  color: var(--color-heading);
+}
+
+.button--ghost:hover {
+  background: var(--color-heading);
+  box-shadow: none;
+  color: var(--color-white);
+}
+
+.checklist {
+  list-style: none;
+  margin-left: 0;
+}
+
+.checklist li {
+  color: var(--color-gray);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.checklist li::before {
+  color: var(--color-verified);
+  content: "✓";
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+}
+
+.cobalt-uses {
+  display: grid;
+  gap: var(--spacingGap);
+  margin-top: var(--spacingSection);
+}
+
+@media (min-width: 1100px) {
+  .cobalt-uses {
+    align-items: center;
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .cobalt-uses .in-use {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cobalt-uses h3 {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cobalt-uses-copy > p {
+  color: var(--color-gray);
+}
+
+.cobalt-uses-cta {
+  background: var(--color-secondary);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+}
+
+.cobalt-uses-cta strong {
+  color: var(--color-heading);
+}
+
+.cobalt-uses-cta a {
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.cobalt-uses .in-use {
+  margin: 0;
+}
+
+.nav-cobalt {
+  color: var(--color-heading);
+}
+
 /* --- Proof strip (dark band) ----------------------------------------------- */
 .proof {
   color: var(--color-white);
@@ -1984,7 +2152,7 @@ mark.tbd {
   animation:
     paws-turn 240s linear infinite,
     paws-breathe 40s ease-in-out infinite alternate;
-  background-image: url("/assets/paw-tile.svg");
+  background-image: url("../assets/paw-tile.svg");
   background-size: 92px 92px;
   inset: -50%;
   pointer-events: none;
@@ -1995,8 +2163,8 @@ mark.tbd {
 /* Filled paws, placed and cycled by src/ts/paw-pattern.ts: each is the paw
    shape (a mask) in a random palette colour, fading in and out. */
 .paw-fill {
-  -webkit-mask: url("/assets/paw-mask.svg") center / contain no-repeat;
-  mask: url("/assets/paw-mask.svg") center / contain no-repeat;
+  -webkit-mask: url("../assets/paw-mask.svg") center / contain no-repeat;
+  mask: url("../assets/paw-mask.svg") center / contain no-repeat;
   opacity: 0;
   position: absolute;
   transition: opacity 2.4s ease-in-out;
@@ -2107,7 +2275,8 @@ mark.tbd {
     .patent-card,
     .tokens,
     .routes li,
-    .app-mock {
+    .app-mock,
+    .choice {
       animation: reveal ease-out both;
       animation-range: entry 0% entry 60%;
       animation-timeline: view();
@@ -2152,7 +2321,7 @@ mark.tbd {
 
 /* Reveal fallback for browsers without scroll timelines (scroll-effects.ts). */
 .reveal-fallback
-  :is(.feature-card, .pillars li, .model li, .in-use li, .evidence, .leader, .patent-card, .tokens, .routes li, .app-mock) {
+  :is(.feature-card, .pillars li, .model li, .in-use li, .evidence, .leader, .patent-card, .tokens, .routes li, .app-mock, .choice) {
   opacity: 0;
   transition:
     opacity 600ms ease-out,
@@ -2163,7 +2332,7 @@ mark.tbd {
 }
 
 .reveal-fallback
-  :is(.feature-card, .pillars li, .model li, .in-use li, .evidence, .leader, .patent-card, .tokens, .routes li, .app-mock).is-revealed {
+  :is(.feature-card, .pillars li, .model li, .in-use li, .evidence, .leader, .patent-card, .tokens, .routes li, .app-mock, .choice).is-revealed {
   opacity: 1;
   translate: 0 0;
 }

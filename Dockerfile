@@ -7,4 +7,7 @@ COPY . .
 # Set only by preview apps (BUILD_TIME env on App Platform); see src/_data/env.js.
 ARG SITE_PREVIEW
 ENV SITE_PREVIEW=$SITE_PREVIEW
+# Set when the site is served from a subpath (see .eleventy.js).
+ARG PATH_PREFIX
+ENV PATH_PREFIX=$PATH_PREFIX
 RUN npm run build
