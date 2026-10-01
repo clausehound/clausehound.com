@@ -2066,3 +2066,12 @@ mark.tbd {
   color: var(--color-gray);
   margin: 0;
 }
+
+/* The maple leaf beside "Made in Toronto, Canada" in the footer. */
+.maple {
+  fill: #d52b1e;
+  height: 0.85em;
+  margin-right: 0.35em;
+  vertical-align: -0.05em;
+  width: 0.85em;
+}

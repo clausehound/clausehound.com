@@ -19,7 +19,8 @@ illustrative.
 | 7 | "84 versions of the ESA", "71 consolidations of the Insurance Act" | Knowledge base | Re-verify |
 | 8 | "Diffs in the browser… documents with thousands of clauses" | Architecture / app | Unmeasured |
 | 9 | "A deployment of your own" (per-client instances) | Integrations / contact | Unmeasured |
-| 10 | "Yes, behind your own firewall" / no shared database | Architecture: Distributed | Verify |
+| 10 | "Yes, behind your own firewall" / no new party holding data | Architecture: Distributed | Verify |
+| 11 | "SOC 2 audited" | Architecture: Security | Confirm the report type and date |
 
 ---
 
@@ -217,11 +218,12 @@ firewall, with no shared Clausehound database.
 - List anything that needs to reach out: licence checks, telemetry, fonts or
   scripts from CDNs, update checks, and the language model itself.
 
-**Watch for:** AI features call a model. If that model is an external API, the
-text sent to it leaves the firewall. The honest answer is either "point it at a
-model you host" (confirm we support a configurable model endpoint) or "only
-the prompts go out, never the stored corpus". Say which on the site before a
-security team asks.
+**The point of the claim:** the data layer (documents, versions, reviews,
+playbooks) sits wherever the client needs it. A client that has already
+approved its AI provider (say, an audited Claude plan) adds no new party
+holding its data. So the test is that nothing except the client's own
+configured model endpoint is contacted, and the corpus is never sent anywhere
+wholesale.
 
 **Report:** "Runs with no outbound access" (or the exact list of required
 endpoints), and which AI features work fully offline.
