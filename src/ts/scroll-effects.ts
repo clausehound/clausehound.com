@@ -6,15 +6,10 @@
 // Keep in step with the reveal selector list in main.css.
 const REVEAL_SELECTOR = [
   ".feature-card",
-  ".pillars li",
   ".model li",
-  ".in-use li",
   ".evidence",
   ".leader",
-  ".patent-card",
-  ".tokens",
   ".timeline li",
-  ".routes li",
   ".app-mock",
 ].join(", ");
 

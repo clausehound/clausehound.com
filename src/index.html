@@ -152,24 +152,6 @@ permalink: /
     </li>
   </ol>
 
-  <ol class="pillars">
-    <li>
-      <h4>Ingest</h4>
-      <p>Statutes from official consolidations, contracts from PDF and Word. Parsing and OCR turn them into the clause tree, headings and all.</p>
-    </li>
-    <li>
-      <h4>Version</h4>
-      <p>Every consolidation or draft becomes an append-only version. Nothing is overwritten, so any two dates can be compared.</p>
-    </li>
-    <li>
-      <h4>Tag</h4>
-      <p>A controlled taxonomy marks what each clause does. AI proposes tags; people confirm them, on the record.</p>
-    </li>
-    <li>
-      <h4>Serve</h4>
-      <p>GraphQL for your apps, MCP for your agents, and CSV, JSON or Excel for everyone else.</p>
-    </li>
-  </ol>
 </section>
 
 <section class="content tint app" id="app">
@@ -300,20 +282,6 @@ permalink: /
     </figure>
   </div>
 
-  <ul class="routes">
-    <li>
-      <h4>In the app</h4>
-      <p>Guided review or autonomous analysis over your documents, with comments, version history and sign-off. For lawyers and reviewers.</p>
-    </li>
-    <li>
-      <h4>Over GraphQL</h4>
-      <p>Contracts, versions, clauses, categories and reviewed findings, for your own apps, dashboards and pipelines.</p>
-    </li>
-    <li>
-      <h4>Over MCP</h4>
-      <p>Point Claude or any MCP client at your endpoint, and it can search, compare and cite the law directly.</p>
-    </li>
-  </ul>
 </section>
 
 <section class="content cobalt" id="in-production">
@@ -324,7 +292,7 @@ permalink: /
       <p>
         <a href="{{ site.cobaltUrl }}">Cobalt</a>, a tech-focused law firm, runs its legal services on
         Clausehound: Diligence Monster for due diligence, DealPrep for deal knowledge and
-        Policysaurus for policy research, with its lawyers verifying
+        Policysaurus for policy research, plus records retention schedules, with its lawyers verifying
         every finding in the app. It's the platform's toughest user, and the reason every
         feature here was built for work that has to be right.
       </p>
@@ -335,24 +303,6 @@ permalink: /
         <a href="#contact">Set up an engagement →</a>
       </p>
     </div>
-    <ul class="in-use">
-      <li>
-        <h4>Due diligence</h4>
-        <p>Extraction from data rooms into reviewed disclosure schedules.</p>
-      </li>
-      <li>
-        <h4>Deal knowledge</h4>
-        <p>Clause libraries built from a firm's own precedent, by cluster.</p>
-      </li>
-      <li>
-        <h4>Policy research</h4>
-        <p>Concordance across jurisdictions: the same rule, compared province by province.</p>
-      </li>
-      <li>
-        <h4>Records retention</h4>
-        <p>Retention schedules filled from tagged statutes, with a citation for every period.</p>
-      </li>
-    </ul>
   </div>
 </section>
 
@@ -424,23 +374,6 @@ permalink: /
     </article>
   </div>
 
-  {% comment %}Relative, not measured: the bars show the shape of the saving,
-  not a benchmark. Replace with real numbers from a measured run before
-  quoting a figure anywhere.{% endcomment %}
-  <figure class="tokens" aria-label="Illustration: the context an agent needs, with and without Clausehound">
-    <figcaption>
-      <span>Same question: "What changed in Ontario hours-of-work rules, 2004 to 2009?"</span>
-      <span class="tokens-note">Illustrative</span>
-    </figcaption>
-    <div class="tokens-row">
-      <span class="tokens-label">Paste both versions of the Act into the prompt</span>
-      <span class="tokens-bar tokens-bar--long"></span>
-    </div>
-    <div class="tokens-row">
-      <span class="tokens-label">Ask Clausehound</span>
-      <span class="tokens-bar tokens-bar--short"></span>
-    </div>
-  </figure>
 </section>
 
 <section class="content verification" id="verification">
@@ -632,42 +565,13 @@ permalink: /
   </div>
 
   <ul class="integration-list">
-    <li><strong>MCP server</strong> JSON-RPC over HTTP. Find statutes, list versions, search text, diff any two versions, fill schedules.</li>
-    <li><strong>GraphQL API</strong> The same model your apps use, with subscriptions over WebSocket for live updates.</li>
-    <li><strong>Exports</strong> CSV, JSON and Excel of any analysis, straight into the spreadsheet your team already has.</li>
+    <li><strong>MCP tools</strong> find_statutes, list_statute_versions, search_statute_text, compare_statute_versions, fill_schedule and more, over JSON-RPC.</li>
     <li><strong>Documents in</strong> PDF, Word and official statute consolidations, parsed into the clause tree.</li>
-    <li><strong>Single sign-on</strong> Azure AD and OpenID Connect, with JWT for service-to-service calls.</li>
-    <li><strong>Point-in-time law</strong> Every version of every statute we track, comparable between any two dates.</li>
+    <li><strong>Results out</strong> CSV, JSON and Excel of any analysis, or Word with suggested edits as tracked changes.</li>
   </ul>
 </section>
 
-<section class="content tint patent" id="patent">
-  <div class="patent-card">
-    <div>
-      <h6 class="subheading">The patent</h6>
-      <h2>A taxonomy for clauses, patented.</h2>
-      <p>
-        The heart of Clausehound is protected by
-        <cite>Clause Taxonomy System and Method for Structured Document Construction and Analysis</cite>,
-        <span class="nowrap">US Pat. No. 12,670,200</span>.
-      </p>
-      <p>
-        In plain terms: a way of breaking legal documents into typed, nested clauses, so they
-        can be built, versioned, compared and analysed as data, rather than as text. It's why
-        the same machinery handles a statute and a contract, and why a change to one clause can
-        be traced everywhere it matters.
-      </p>
-    </div>
-    <dl class="patent-facts">
-      <div><dt>Patent</dt><dd>US 12,670,200</dd></div>
-      <div><dt>Covers</dt><dd>Clause taxonomy, structured construction and analysis</dd></div>
-      <div><dt>Owner</dt><dd>Clausehound Inc.</dd></div>
-      <div><dt>Co-inventor</dt><dd>Joshua Koudys, CTO</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="content history" id="history">
+<section class="content tint history" id="history">
   <div class="history-intro">
     <h6 class="subheading">Track record</h6>
     <h2>Not a wrapper. A decade in the making.</h2>
@@ -686,13 +590,13 @@ permalink: /
     <li><span class="timeline-year">2016</span><p>Clausehound starts: contracts as structured clauses, not files.</p></li>
     <li><span class="timeline-year">2018</span><p>Joins Seneca HELIX, the start of a long research partnership with Seneca.</p></li>
     <li><span class="timeline-year">2020</span><p>Machine learning on clauses with Seneca College: flagging problem clauses against a client's own precedent.</p></li>
-    <li><span class="timeline-year">2022</span><p>Clause taxonomy patent filed.</p></li>
+    <li><span class="timeline-year">2022</span><p>Patent filed for the clause taxonomy: breaking legal documents into typed, nested clauses that can be versioned, compared and analysed as data.</p></li>
     <li><span class="timeline-year">2023</span><p>Large language models built into the platform, with people verifying every result.</p></li>
-    <li><span class="timeline-year">Now</span><p>Patented (US 12,670,200). Point-in-time law, MCP for agents, and Rust from end to end.</p></li>
+    <li><span class="timeline-year">Now</span><p>Patented: <cite>Clause Taxonomy System and Method for Structured Document Construction and Analysis</cite>, <span class="nowrap">US Pat. No. 12,670,200</span>. Point-in-time law, MCP for agents, and Rust from end to end.</p></li>
   </ol>
 </section>
 
-<section class="content tint team" id="team">
+<section class="content team" id="team">
   <div class="section-intro">
     <h6 class="subheading">Who builds it</h6>
     <h2>Engineers and lawyers, since 2016.</h2>

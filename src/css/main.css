@@ -959,41 +959,6 @@ mark.tbd {
   font-size: 0.75rem;
 }
 
-.routes {
-  display: grid;
-  gap: var(--spacingGap);
-  list-style: none;
-  margin: calc(var(--spacingSection) * 0.75) 0 0;
-}
-
-@media (min-width: 800px) {
-  .routes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.routes li {
-  background: var(--color-white);
-  border: 1px solid var(--color-hairline);
-  border-radius: 8px;
-  border-top: 4px solid var(--color-heading);
-  margin: 0;
-  padding: 1.25rem 1.4rem;
-}
-
-.routes h4 {
-  color: var(--color-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.routes p {
-  color: var(--color-gray);
-  font-size: 0.9rem;
-  margin: 0;
-}
-
 /* --- Clausehound or Cobalt? ----------------------------------------------- */
 .hero-aside {
   color: var(--color-gray);
@@ -1002,20 +967,9 @@ mark.tbd {
   max-width: 34rem;
 }
 
+/* One column of copy now; keep it to a readable measure. */
 .cobalt-uses {
-  display: grid;
-  gap: var(--spacingGap);
-}
-
-@media (min-width: 1100px) {
-  .cobalt-uses {
-    align-items: center;
-    grid-template-columns: 1.1fr 1fr;
-  }
-
-  .cobalt-uses .in-use {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  max-width: 52rem;
 }
 
 .cobalt-uses h2 {
@@ -1042,10 +996,6 @@ mark.tbd {
 .cobalt-uses-cta a {
   display: inline-block;
   margin-top: 0.25rem;
-}
-
-.cobalt-uses .in-use {
-  margin: 0;
 }
 
 .nav-cobalt {
@@ -1146,43 +1096,11 @@ mark.tbd {
   font-size: 0.75rem;
 }
 
-.pillars {
-  display: grid;
-  gap: var(--spacingGap);
-  list-style: none;
-  margin: var(--spacingSection) 0 0;
-}
-
-@media (min-width: 800px) {
-  .pillars {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1100px) {
-  .pillars {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.pillars li {
-  border-top: 1px solid var(--color-heading);
-  margin: 0;
-  padding-top: 1rem;
-}
-
-.pillars h4,
-.in-use h4,
 .data-split h4 {
   color: var(--color-heading);
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-}
-
-.pillars p,
-.in-use p {
-  color: var(--color-gray);
 }
 
 /* --- Architecture: feature cards + token bars ------------------------------ */
@@ -1234,62 +1152,6 @@ mark.tbd {
 
 .feature-card code {
   color: var(--color-black);
-}
-
-.tokens {
-  background: var(--color-white);
-  border: 1px solid var(--color-hairline);
-  border-radius: 8px;
-  margin: var(--spacingSection) auto 0;
-  max-width: 52rem;
-  padding: 1.25rem 1.5rem 1.5rem;
-}
-
-.tokens figcaption {
-  color: var(--color-heading);
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.8rem;
-  font-weight: 600;
-  gap: 0.5rem;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.tokens-note {
-  color: var(--color-light-gray);
-  font-weight: 400;
-}
-
-.tokens-row {
-  display: grid;
-  gap: 0.35rem;
-  margin-top: 0.9rem;
-}
-
-.tokens-label {
-  color: var(--color-gray);
-  font-size: 0.8rem;
-}
-
-.tokens-bar {
-  border-radius: 50rem;
-  display: block;
-  height: 0.8rem;
-}
-
-.tokens-bar--long {
-  background: repeating-linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--color-heading) 35%, transparent) 0 6px,
-    color-mix(in srgb, var(--color-heading) 22%, transparent) 6px 8px
-  );
-  width: 100%;
-}
-
-.tokens-bar--short {
-  background: var(--color-primary);
-  width: 4%;
 }
 
 /* --- Verification: copy + evidence rows ------------------------------------ */
@@ -1755,93 +1617,6 @@ mark.tbd {
   margin-bottom: 0.25rem;
 }
 
-/* --- Patent ---------------------------------------------------------------- */
-.patent-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-hairline);
-  border-radius: 12px;
-  border-top: 4px solid var(--color-primary);
-  display: grid;
-  gap: var(--spacingGap);
-  margin: 0 auto;
-  max-width: 72rem;
-  padding: clamp(1.5rem, 4vw, 3rem);
-}
-
-@media (min-width: 1100px) {
-  .patent-card {
-    align-items: center;
-    grid-template-columns: 1.5fr 1fr;
-  }
-}
-
-.patent-card p {
-  color: var(--color-gray);
-}
-
-.patent-card p:last-child {
-  margin-bottom: 0;
-}
-
-.patent-facts {
-  display: grid;
-  gap: 0;
-  margin: 0;
-}
-
-.patent-facts div {
-  border-top: 1px solid var(--color-hairline);
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 7rem 1fr;
-  padding: 0.75rem 0;
-}
-
-.patent-facts dt {
-  color: var(--color-light-gray);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  padding-top: 0.15rem;
-  text-transform: uppercase;
-}
-
-.patent-facts dd {
-  color: var(--color-black);
-  font-weight: 600;
-  margin: 0;
-}
-
-/* --- In production --------------------------------------------------------- */
-.in-use {
-  display: grid;
-  gap: var(--spacingGap);
-  list-style: none;
-  margin: var(--spacingGap) 0 0;
-}
-
-@media (min-width: 800px) {
-  .in-use {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1100px) {
-  .in-use {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.in-use li {
-  border-left: 3px solid var(--color-primary);
-  margin: 0;
-  padding-left: 1rem;
-}
-
-.in-use p {
-  font-size: 0.9rem;
-  margin: 0;
-}
-
 /* --- Team ------------------------------------------------------------------ */
 .leaders {
   display: grid;
@@ -2157,23 +1932,17 @@ mark.tbd {
     }
 
     .feature-card,
-    .pillars li,
     .model li,
-    .in-use li,
     .evidence,
     .leader,
-    .patent-card,
-    .tokens,
     .timeline li,
-    .routes li,
     .app-mock {
       animation: reveal ease-out both;
       animation-range: entry 0% entry 60%;
       animation-timeline: view();
     }
 
-    .leader,
-    .patent-card {
+    .leader {
       animation-range: entry 0% entry 160px;
     }
 
@@ -2184,12 +1953,8 @@ mark.tbd {
       }
     }
 
-    /* The bar grows as the comparison scrolls in. */
-    .tokens-bar--long {
-      animation: bar-grow ease-out both;
-      animation-range: entry 20% cover 45%;
-      animation-timeline: view();
-    }
+    
+    
 
     @keyframes bar-grow {
       from {
@@ -2211,7 +1976,7 @@ mark.tbd {
 
 /* Reveal fallback for browsers without scroll timelines (scroll-effects.ts). */
 .reveal-fallback
-  :is(.feature-card, .pillars li, .model li, .in-use li, .evidence, .leader, .patent-card, .tokens, .timeline li, .routes li, .app-mock) {
+  :is(.feature-card, .model li, .evidence, .leader, .timeline li, .app-mock) {
   opacity: 0;
   transition:
     opacity 600ms ease-out,
@@ -2222,7 +1987,7 @@ mark.tbd {
 }
 
 .reveal-fallback
-  :is(.feature-card, .pillars li, .model li, .in-use li, .evidence, .leader, .patent-card, .tokens, .timeline li, .routes li, .app-mock).is-revealed {
+  :is(.feature-card, .model li, .evidence, .leader, .timeline li, .app-mock).is-revealed {
   opacity: 1;
   translate: 0 0;
 }
