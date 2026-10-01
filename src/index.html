@@ -17,25 +17,39 @@ permalink: /
   <div class="hero-paws" aria-hidden="true"></div>
   <div class="hero-copy">
     <h6 class="subheading">Clausehound · Legal knowledge engine</h6>
-    <h1>Legal knowledge, as data your agents can cite.</h1>
+    <h1>Legal knowledge, as data you can cite.</h1>
     <p class="hero-lede">
       Clausehound turns statutes, regulations and contracts into structured, versioned data:
-      every provision addressable, every amendment kept. Your apps and AI agents query it over
-      GraphQL and MCP, and get back the exact clauses with their sources, not a 400-page PDF.
+      every provision addressable, every amendment kept. Lawyers review it in the app, your code
+      queries it over GraphQL, and your AI agents connect over MCP. Every route gets the exact
+      clauses with their sources, not a 400-page PDF.
     </p>
     <div class="hero-actions">
       <a class="button" href="#contact">Talk to us</a>
-      <a class="hero-secondary" href="#architecture">See the architecture</a>
+      <a class="hero-secondary" href="#app">See the three ways in</a>
     </div>
   </div>
 
   {% comment %}
-    One real MCP tool, compare_statute_versions, with the shape of its real
-    result (rust/clausehound/src/mcp.rs, CompareResult). The version names
-    and section text are trimmed for the example.
+    Two real routes in, as tabs (radio inputs, no JS; without :has() both
+    panes show, one above the other).
+    MCP: the real compare_statute_versions tool and the shape of its result
+    (rust/clausehound/src/mcp.rs, CompareResult); version names and text
+    trimmed for the example.
+    GraphQL: the real searchAnalysisWorkspace query and fields
+    (packages/app/rust-schema.graphql); the finding itself is made up.
   {% endcomment %}
-  <figure class="code-window" aria-label="Example: an AI agent asks Clausehound what changed in Ontario's Employment Standards Act">
-    <div class="code-bar"><span></span><span></span><span></span><em>agent → clausehound / mcp</em></div>
+  <figure class="code-window" aria-label="Example: querying Clausehound over MCP or GraphQL">
+    <div class="code-bar">
+      <span></span><span></span><span></span>
+      <div class="code-tabs">
+        <input type="radio" name="hero-code" id="code-mcp" checked>
+        <label for="code-mcp">MCP</label>
+        <input type="radio" name="hero-code" id="code-gql">
+        <label for="code-gql">GraphQL</label>
+      </div>
+    </div>
+    <div class="code-pane code-pane--mcp">
 <pre><code><span class="c-dim">tools/call</span> <span class="c-key">compare_statute_versions</span>
 {
   <span class="c-prop">"citation_code"</span>: <span class="c-str">"00e41"</span>,  <span class="c-dim">// Employment Standards Act, 2000 (ON)</span>
@@ -58,7 +72,35 @@ permalink: /
     }
   ]
 }</code></pre>
-    <figcaption>One tool call: two cited changes, not two consolidations of the Act.</figcaption>
+      <p class="code-caption">From your agent: two cited changes, not two consolidations of the Act.</p>
+    </div>
+    <div class="code-pane code-pane--gql">
+<pre><code><span class="c-key">query</span> <span class="c-prop">Findings</span>($report: <span class="c-prop">Uuid!</span>) {
+  <span class="c-key">searchAnalysisWorkspace</span>(searchQueryUuid: $report) {
+    verdict
+    rationale
+    approvalStatus
+    contractVersion { name contract { name } }
+  }
+}
+
+<span class="c-dim">← data</span>
+{
+  <span class="c-prop">"searchAnalysisWorkspace"</span>: [
+    {
+      <span class="c-prop">"verdict"</span>:        <span class="c-amend">"inadequate"</span>,
+      <span class="c-prop">"rationale"</span>:      <span class="c-str">"No prior consent before customer
+                         data is used to train AI models…"</span>,
+      <span class="c-prop">"approvalStatus"</span>: <span class="c-add">"approved"</span>,
+      <span class="c-prop">"contractVersion"</span>: {
+        <span class="c-prop">"name"</span>: <span class="c-str">"Signed 2026-04-29"</span>,
+        <span class="c-prop">"contract"</span>: { <span class="c-prop">"name"</span>: <span class="c-str">"Master Services Agreement"</span> }
+      }
+    }
+  ]
+}</code></pre>
+      <p class="code-caption">From your code: the findings your lawyers reviewed, with their sign-off.</p>
+    </div>
   </figure>
 </header>
 
@@ -126,7 +168,151 @@ permalink: /
   </ol>
 </section>
 
-<section class="content tint architecture" id="architecture">
+<section class="content tint app" id="app">
+  <div class="section-intro">
+    <h6 class="subheading">Three ways in</h6>
+    <h2>The app for your lawyers. GraphQL for your code. MCP for your agents.</h2>
+    <p>
+      MCP is one door, not the only one. Most teams start in the Clausehound app, where a
+      playbook of prompts runs against their documents and a person reviews every result. The
+      same findings are then available to your systems over GraphQL, and to your agents over MCP.
+    </p>
+  </div>
+
+  {% comment %}
+    Simplified mocks of the AI Insights panel in the app (packages/app/ts/
+    components/AiChat/Stepper, branch fix/guidedFlowScreenSize; not on
+    master yet). Labels and copy are the app's own (welcomeModes.ts); the
+    documents and findings are made up. Not screenshots: HTML, so they stay
+    crisp and on-palette.
+  {% endcomment %}
+  <figure class="app-mock app-mock--welcome">
+    <div class="mock-window" aria-hidden="true">
+      <div class="mock-bar"><span></span><span></span><span></span><em>Clausehound · AI Insights</em></div>
+      <div class="mock-body">
+        <p class="app-eyebrow">Welcome</p>
+        <h4>How do you want to review?</h4>
+        <p class="app-muted">Both run the same prompts against the same documents. Guided stops at every one and can change your text; autonomous runs straight through and reports back.</p>
+        <div class="app-modes">
+          <div class="app-mode">
+            <span class="app-tag">Guided</span>
+            <h5>Guided review</h5>
+            <p class="app-muted">Work one prompt at a time. Read the response beside its source clauses and approve each change before moving on.</p>
+            <ol class="app-mode-steps">
+              <li><b>Report</b>Pick a saved prompt set.</li>
+              <li><b>Prompts</b>Queue the ones to run.</li>
+              <li><b>Analyze</b>Response, sources, findings, per prompt.</li>
+              <li><b>Apply</b>Approve changes.</li>
+            </ol>
+            <p class="app-muted">Best for a first run of a playbook, or contracts you have to get exactly right.</p>
+            <div class="app-cta"><span class="app-btn app-btn--dark">Get started →</span><span class="app-writes">Writes to your documents</span></div>
+          </div>
+          <div class="app-mode">
+            <span class="app-tag">Autonomous</span>
+            <h5>Autonomous analysis</h5>
+            <p class="app-muted">Runs every prompt against every document, then checks each suggestion against the paragraph it came from. You read the findings in one place and export them.</p>
+            <ol class="app-mode-steps">
+              <li><b>Report</b>Pick a saved prompt set.</li>
+              <li><b>Analyze</b>Everything runs unattended.</li>
+              <li><b>Review</b>Read the findings and the comparisons.</li>
+              <li><b>Export &amp; Share</b>Download the report.</li>
+            </ol>
+            <p class="app-muted">Best for sizing up a portfolio, or a playbook you already trust.</p>
+            <div class="app-cta"><span class="app-btn app-btn--dark">Read a whole report →</span><span class="app-readonly">Read-only, ends in a .docx</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figcaption>Pick a flow: step through each prompt, or let a whole playbook run.</figcaption>
+  </figure>
+
+  <div class="mock-stage app-flows">
+    <figure class="mock mock--left">
+      <div class="mock-window" aria-hidden="true">
+        <div class="mock-bar"><span></span><span></span><span></span><em>Guided review · Services Agreement Playbook</em></div>
+        <div class="mock-body">
+          <ol class="app-stepper">
+            <li class="done">Report</li>
+            <li class="done">Prompts</li>
+            <li class="on">Analyze</li>
+            <li>Apply</li>
+          </ol>
+          <p class="app-eyebrow">In review</p>
+          <h4>Information security</h4>
+          <ol class="app-substeps">
+            <li class="done">Response</li>
+            <li class="done">Sources</li>
+            <li class="on">Findings</li>
+            <li>Summary</li>
+          </ol>
+          <p class="app-redline">
+            Vendor may use aggregated, anonymous or de-identified data derived from the Client's
+            data solely for analytical purposes<del>, in any manner Vendor shall see fit</del><ins>; however, Vendor shall not use the Client's data for training or improving any artificial intelligence models without the Client's prior written consent</ins>.
+          </p>
+          <div class="app-actions">
+            <span class="app-btn app-btn--go">Approve change</span>
+            <span class="app-btn">Reject</span>
+            <span class="app-muted app-small">Approved edits are applied together in Step 4.</span>
+          </div>
+          <div class="app-footer"><span>¶ 1 of 8 · 1 approved</span><span class="app-btn app-btn--primary">Continue to Summary</span></div>
+        </div>
+      </div>
+      <figcaption>Guided: the suggested change as a redline. Nothing is written until someone approves it.</figcaption>
+    </figure>
+
+    <figure class="mock mock--right">
+      <div class="mock-window" aria-hidden="true">
+        <div class="mock-bar"><span></span><span></span><span></span><em>Autonomous analysis · NDA review · read-only</em></div>
+        <div class="mock-body">
+          <ol class="app-stepper">
+            <li class="done">Report</li>
+            <li class="done">Analyze</li>
+            <li class="on">Review</li>
+            <li>Export &amp; Share</li>
+          </ol>
+          <div class="app-review-head">
+            <div>
+              <p class="app-eyebrow">Step 3 · Review</p>
+              <h4>10 findings to review</h4>
+              <p class="app-muted app-small">Read every finding beside the paragraph it was compared against.</p>
+            </div>
+            <dl class="app-counts">
+              <div><dt>7</dt><dd>Inadequate</dd></div>
+              <div><dt>3</dt><dd>Aligned</dd></div>
+            </dl>
+          </div>
+          <ul class="app-findings">
+            <li><span>Definition of confidential information</span><em class="bad">Inadequate</em></li>
+            <li><span>Return of materials</span><em class="good">Aligned</em></li>
+            <li><span>Liability for breach</span><em class="bad">Inadequate</em></li>
+          </ul>
+          <div class="app-export">
+            <div><b>Word</b><span class="app-muted app-small">Report, plus one .docx per document with suggested edits as tracked changes</span></div>
+            <span class="app-btn app-btn--primary">Choose folder…</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>Autonomous: a whole playbook across a portfolio, out as Word with tracked changes.</figcaption>
+    </figure>
+  </div>
+
+  <ul class="routes">
+    <li>
+      <h4>In the app</h4>
+      <p>Guided review or autonomous analysis over your documents, with comments, version history and sign-off. For lawyers and reviewers.</p>
+    </li>
+    <li>
+      <h4>Over GraphQL</h4>
+      <p>Contracts, versions, clauses, categories and reviewed findings, for your own apps, dashboards and pipelines.</p>
+    </li>
+    <li>
+      <h4>Over MCP</h4>
+      <p>Point Claude or any MCP client at your endpoint, and it can search, compare and cite the law directly.</p>
+    </li>
+  </ul>
+</section>
+
+<section class="content architecture" id="architecture">
   <div class="section-intro">
     <h6 class="subheading">Architecture</h6>
     <h2>Fast, small, and cheap to run.</h2>
@@ -209,7 +395,7 @@ permalink: /
   </figure>
 </section>
 
-<section class="content verification" id="verification">
+<section class="content tint verification" id="verification">
   <div class="verification-copy">
     <h6 class="subheading">Verification</h6>
     <h2>No citation, no claim.</h2>
@@ -266,7 +452,7 @@ permalink: /
   </figure>
 </section>
 
-<section class="content tint data" id="data">
+<section class="content data" id="data">
   <div class="section-intro">
     <h6 class="subheading">The knowledge base</h6>
     <h2>Not US-centric. Canadian law, done properly.</h2>
@@ -323,14 +509,14 @@ permalink: /
   </div>
 </section>
 
-<section class="content integrations" id="integrations">
+<section class="content tint integrations" id="integrations">
   <div class="section-intro">
     <h6 class="subheading">Integrations</h6>
     <h2>Bring your own agent.</h2>
     <p>
-      Clausehound speaks MCP, the open standard AI assistants use to connect to tools. Point
-      Claude, or any MCP client, at your endpoint and it can search, compare and cite the law
-      directly. Your apps get the same data over GraphQL.
+      For agents, Clausehound speaks MCP, the open standard AI assistants use to connect to
+      tools. Point Claude, or any MCP client, at your endpoint and it can search, compare and
+      cite the law directly. For everything else there's GraphQL and exports.
     </p>
   </div>
 
@@ -392,7 +578,7 @@ permalink: /
   </ul>
 </section>
 
-<section class="content tint patent" id="patent">
+<section class="content patent" id="patent">
   <div class="patent-card">
     <div>
       <h6 class="subheading">The patent</h6>
@@ -418,7 +604,7 @@ permalink: /
   </div>
 </section>
 
-<section class="content built-on" id="built-on">
+<section class="content tint built-on" id="built-on">
   <div class="section-intro">
     <h6 class="subheading">In production</h6>
     <h2>Lawyers run real matters on it.</h2>
@@ -448,7 +634,7 @@ permalink: /
   </ul>
 </section>
 
-<section class="content tint team" id="team">
+<section class="content team" id="team">
   <div class="section-intro">
     <h6 class="subheading">Who builds it</h6>
     <h2>Engineers and lawyers, since 2016.</h2>
