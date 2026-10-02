@@ -432,7 +432,7 @@ mark.tbd {
 
 .hero--short {
   grid-template-columns: 1fr;
-  min-height: 70vh;
+  min-height: 50vh;
 }
 
 /* --- Code window (hero) ---------------------------------------------------- */
@@ -2074,4 +2074,20 @@ mark.tbd {
   margin-right: 0.35em;
   vertical-align: -0.05em;
   width: 0.85em;
+}
+
+/* --- Learn: the walkthroughs ---------------------------------------------- */
+.learn {
+  display: grid;
+  gap: var(--spacingSection);
+  max-width: 64rem;
+}
+
+.learn-item iframe {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.1);
+  display: block;
+  width: 100%;
 }

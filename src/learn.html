@@ -1,0 +1,28 @@
+---
+layout: base.html
+title: Learn
+description: Short walkthroughs of the Clausehound app, from opening and filtering documents to adding your own categories.
+permalink: /learn/
+---
+
+{% comment %}The four Scribe walkthroughs from the old /learn/policy-research/
+page. Iframes load lazily, so nothing is fetched from Scribe until you
+scroll to it.{% endcomment %}
+<header class="hero hero--short">
+  <div class="hero-paws" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <h6 class="subheading">Learn</h6>
+    <h1>See how your users work in Clausehound.</h1>
+    <p class="hero-lede">Four short walkthroughs of the app, from the basics to adding your own categories and documents.</p>
+  </div>
+</header>
+
+<section class="content learn">
+  {% for t in learn %}
+  <article class="learn-item">
+    <h6 class="subheading">{{ forloop.index }} · {{ t.label }}</h6>
+    <h2>{{ t.title }}</h2>
+    <iframe src="{{ t.src }}" title="Clausehound walkthrough: {{ t.title }}" loading="lazy" allowfullscreen></iframe>
+  </article>
+  {% endfor %}
+</section>

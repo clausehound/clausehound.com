@@ -1,0 +1,24 @@
+---
+pagination:
+  data: redirects
+  size: 1
+  alias: redirect
+permalink: "{{ redirect.from }}"
+eleventyExcludeFromCollections: true
+---
+{%- comment -%}Root-relative targets: HtmlBasePlugin adds any PATH_PREFIX to
+the href and the meta refresh alike.{%- endcomment -%}
+{%- assign target = redirect.to -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta http-equiv="refresh" content="0; url={{ target }}">
+    <link rel="canonical" href="{{ target }}">
+    <title>Moved</title>
+  </head>
+  <body>
+    <p>This page has moved: <a href="{{ target }}">{{ target }}</a></p>
+  </body>
+</html>
