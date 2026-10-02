@@ -2091,3 +2091,18 @@ mark.tbd {
   display: block;
   width: 100%;
 }
+
+/* --- Integrations: the "runs alongside" stack row ------------------------- */
+.stack {
+  border-top: 1px solid var(--color-hairline);
+  margin-top: var(--spacingGap);
+  padding-top: var(--spacingGap);
+}
+
+.stack .subheading {
+  margin-bottom: 0.75rem;
+}
+
+.stack .chips {
+  margin: 0;
+}
