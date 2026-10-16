@@ -2127,8 +2127,251 @@ body:has(.draft-banner) {
   padding-bottom: 4rem;
 }
 
+/* Plan switch: two radio-driven plan sets, no JS. */
+.plan-switch {
+  background: var(--color-secondary);
+  border: 1px solid var(--color-hairline);
+  border-radius: 50rem;
+  display: flex;
+  margin: 0 auto calc(var(--spacingGap) * 2);
+  padding: 0.3rem;
+  width: max-content;
+  max-width: 100%;
+}
+
+.plan-switch input {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.plan-switch label {
+  border-radius: 50rem;
+  color: var(--color-gray);
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.55rem 1.25rem;
+  text-align: center;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.plan-switch input:checked + label {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.plan-switch input:focus-visible + label {
+  outline: 2px solid var(--color-primary);
+}
+
+.plans:has(#plans-app:checked) .plan-set--builders,
+.plans:has(#plans-builders:checked) .plan-set--app {
+  display: none;
+}
+
+.plan-set-intro {
+  color: var(--color-gray);
+  margin: 0 auto calc(var(--spacingGap) * 1.5);
+  max-width: 46rem;
+  text-align: center;
+}
+
+.plan-grid {
+  display: grid;
+  gap: var(--spacingGap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.plan-grid--3 {
+  max-width: 64rem;
+}
+
+@media (min-width: 1100px) {
+  .plan-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .plan-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.plan {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+}
+
+.plan--featured {
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.12);
+}
+
+.plan-badge {
+  background: var(--color-primary);
+  border-radius: 50rem;
+  color: var(--color-black);
+  font-size: 0.7rem;
+  font-weight: 700;
+  left: 1.5rem;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.7rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: -0.7rem;
+}
+
+.plan-name {
+  color: var(--color-heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.plan-price {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.plan-amount {
+  color: var(--color-black);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.plan-amount--text {
+  font-size: 1.8rem;
+}
+
+.plan-from,
+.plan-unit {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+}
+
+.plan-sub {
+  color: var(--color-light-gray);
+  font-size: 0.8rem;
+  margin: 0.25rem 0 1rem;
+  min-height: 1.2em;
+}
+
+.plan-for {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  min-height: 2.8em;
+}
+
+.plan-cta {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.button--quiet {
+  background: var(--color-white);
+  box-shadow: inset 0 0 0 1px var(--color-black);
+}
+
+.button--quiet:hover {
+  background: var(--color-secondary);
+  box-shadow: inset 0 0 0 1px var(--color-black);
+}
+
+.plan-features {
+  border-top: 1px solid var(--color-hairline);
+  list-style: none;
+  margin: 0;
+  padding-top: 1.25rem;
+}
+
+.plan-features li {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  padding-left: 1.6rem;
+  position: relative;
+}
+
+.plan-features li::before {
+  color: var(--color-verified);
+  content: "✓";
+  font-weight: 700;
+  left: 0;
+  position: absolute;
+}
+
+.addons {
+  margin: calc(var(--spacingGap) * 2.5) auto 0;
+  max-width: 64rem;
+}
+
+.addons h3,
+.rates h3 {
+  color: var(--color-heading);
+}
+
+.addon {
+  align-items: center;
+  border-top: 1px solid var(--color-hairline);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.addon div {
+  display: flex;
+  flex: 1 1 24rem;
+  flex-direction: column;
+}
+
+.addon span {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+}
+
+.addon-price {
+  font-weight: 700;
+  margin: 0;
+}
+
+.faq-list {
+  margin: 0 auto;
+  max-width: 46rem;
+}
+
+.faq-list details {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  padding: 1rem 1.25rem;
+}
+
+.faq-list summary {
+  color: var(--color-heading);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq-list details p {
+  color: var(--color-gray);
+  margin: 0.75rem 0 0;
+}
+
 .rates {
-  margin: calc(var(--spacingGap) * 2) auto 0;
+  margin: calc(var(--spacingGap) * 2.5) auto 0;
   max-width: 46rem;
 }
 
@@ -2165,7 +2408,4 @@ body:has(.draft-banner) {
   font-weight: 600;
 }
 
-.pricing-terms .points {
-  margin: 0 auto;
-  max-width: 46rem;
-}
+
