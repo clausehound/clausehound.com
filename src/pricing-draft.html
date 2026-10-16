@@ -1,0 +1,171 @@
+---
+layout: base.html
+title: Pricing (draft)
+description: Clausehound pricing for teams that use the app and for builders that put the engine inside their own products.
+permalink: /pricing-draft/
+eleventyExcludeFromCollections: true
+noindex: true
+---
+
+{% comment %}
+  DRAFT, not for launch. Unlinked on purpose: excluded from collections (so
+  not in the sitemap), noindex via the `noindex` front matter in head.html,
+  and nothing on the site points here. Every number in <mark class="tbd"> is
+  a proposal for the CEO and board to set. Move to /pricing/ and drop the
+  banner, `noindex` and the exclusion only once the terms are approved.
+{% endcomment %}
+<div class="draft-banner" role="note">
+  <strong>Draft.</strong> Proposed pricing for internal review. Not an offer; numbers marked
+  <mark class="tbd">like this</mark> are still to be set.
+</div>
+
+<header class="hero hero--short">
+  <div class="hero-paws" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <h6 class="subheading">Pricing</h6>
+    <h1>Use it, or build on it.</h1>
+    <p class="hero-lede">
+      Legal teams pay for the app. Builders put the engine inside their own products, start
+      free, and pay a royalty only once they're earning real revenue on it.
+    </p>
+  </div>
+</header>
+
+<section class="content pricing" id="subscribers">
+  <div class="section-intro">
+    <h6 class="subheading">For legal teams</h6>
+    <h2>The app, the API and the MCP server, for your own work.</h2>
+    <p>
+      For in-house counsel, firms and businesses using Clausehound on their own documents.
+      Hosted by us, in your cloud, or on your own servers.
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h6 class="subheading">Team</h6>
+      <h3>Talk to us</h3>
+      <p>The app for your lawyers, hosted by us, with the public statute corpus and your own documents.</p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Organization</h6>
+      <h3>Talk to us</h3>
+      <p>Unlimited seats, single sign-on, GraphQL and MCP access for your own systems and agents.</p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Engagement</h6>
+      <h3>Talk to us</h3>
+      <p>Deployed behind your firewall and run by the engineers who built it, with your playbooks.</p>
+    </article>
+  </div>
+</section>
+
+<section class="content tint pricing" id="builders">
+  <div class="section-intro">
+    <h6 class="subheading">For builders</h6>
+    <h2>Build on the engine. Pay when it pays.</h2>
+    <p>
+      For software companies, agencies and studios putting Clausehound inside products they sell.
+      You bring your own AI model and tokens, and run on our servers or yours. We take a royalty,
+      and only once your product is earning.
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card">
+      <h6 class="subheading">Free</h6>
+      <h3>$0</h3>
+      <p>
+        Up to <mark class="tbd">100</mark> of your own documents and versions, hosted by us, plus the
+        public statute corpus. For prototypes and products that aren't earning yet.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Royalty, hosted by us</h6>
+      <h3>0% to <mark class="tbd">$65k</mark> a year</h3>
+      <p>
+        Unlimited documents on our servers. No royalty on your first <mark class="tbd">$65k</mark>
+        of attributable revenue each calendar year, then the volume rates below on what's over it.
+      </p>
+    </article>
+    <article class="feature-card">
+      <h6 class="subheading">Royalty, on your servers</h6>
+      <h3>Same royalty</h3>
+      <p>
+        Run the engine in your own cloud or data centre. You carry the compute, so there are no
+        usage limits from us: just the royalty.
+      </p>
+    </article>
+  </div>
+
+  <div class="rates">
+    <h3>Royalty volume rates</h3>
+    <p>Each rate applies only to the revenue in its band, so earning more never costs you more on what came before.</p>
+    <table class="rate-table">
+      <thead>
+        <tr><th scope="col">Attributable revenue in a year</th><th scope="col">Royalty on that band</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Up to <mark class="tbd">$65k</mark></td><td>0%</td></tr>
+        <tr><td>The next <mark class="tbd">$1M</mark></td><td><mark class="tbd">5%</mark></td></tr>
+        <tr><td>The next <mark class="tbd">$4M</mark></td><td><mark class="tbd">3%</mark></td></tr>
+        <tr><td>Everything above that</td><td><mark class="tbd">2%</mark></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="content pricing-terms" id="terms">
+  <div class="section-intro">
+    <h6 class="subheading">The rules</h6>
+    <h2>The same terms for every builder.</h2>
+  </div>
+
+  <ul class="points">
+    <li>
+      <strong>One account, affiliates included.</strong> Every company under common control is one
+      account. The threshold counts your whole portfolio, however many products or companies it
+      spans.
+    </li>
+    <li>
+      <strong>Only attributable revenue.</strong> Gross revenue from products that call the
+      Clausehound API or MCP server. Products that don't use the engine don't count.
+    </li>
+    <li>
+      <strong>Fair use on our servers.</strong> Hosted accounts are rate-limited so one product
+      can't slow down everyone else. If yours outgrows that, we'll talk first and help you move to
+      a dedicated or self-hosted deployment. There are no usage fees either way.
+    </li>
+    <li>
+      <strong>Simple reporting.</strong> Report quarterly once you're over the threshold; below
+      it, there's nothing to file. Standard audit rights apply.
+    </li>
+    <li>
+      <strong>Referrals pay.</strong> Send a customer to a Clausehound subscription and earn
+      <mark class="tbd">20%</mark> of its first year.
+    </li>
+    <li>
+      <strong>Your data is yours.</strong> You own your documents and data, export them whole at
+      any time, and get <mark class="tbd">6–12 months'</mark> notice before we end a service.
+    </li>
+    <li>
+      <strong>Your product can be sold.</strong> The agreement moves with a sale of your company
+      or of a single product line, and survives a change of control at Clausehound.
+    </li>
+  </ul>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-body">
+    <div class="contact-copy">
+      <h6>Custom terms</h6>
+      <h2>Need something different?</h2>
+      <p>
+        Enterprise support, SLAs or a deployment of your own: we'll work out a licence that fits.
+      </p>
+      <p class="contact-alt">
+        Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+      </p>
+    </div>
+  </div>
+</section>

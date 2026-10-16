@@ -2106,3 +2106,66 @@ mark.tbd {
 .stack .chips {
   margin: 0;
 }
+
+/* --- Pricing (draft) ------------------------------------------------------- */
+/* Pinned to the bottom so it never collides with the absolute nav. */
+.draft-banner {
+  background: var(--color-highlight);
+  bottom: 0;
+  box-shadow: 0 -4px 16px rgb(20 34 58 / 0.15);
+  color: var(--color-black);
+  font-size: 0.9rem;
+  left: 0;
+  padding: 0.6rem 1rem;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  z-index: 100;
+}
+
+body:has(.draft-banner) {
+  padding-bottom: 4rem;
+}
+
+.rates {
+  margin: calc(var(--spacingGap) * 2) auto 0;
+  max-width: 46rem;
+}
+
+.rates h3 {
+  color: var(--color-heading);
+}
+
+.rates p {
+  color: var(--color-gray);
+}
+
+.rate-table {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-collapse: collapse;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.rate-table :is(th, td) {
+  border-bottom: 1px solid var(--color-hairline);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.rate-table th {
+  color: var(--color-gray);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rate-table td:last-child {
+  font-weight: 600;
+}
+
+.pricing-terms .points {
+  margin: 0 auto;
+  max-width: 46rem;
+}

@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{% if env.preview %}<meta name="robots" content="noindex, nofollow">{% endif %}
+{% if env.preview or noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 
 <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
 <meta name="description" content="{{ description | default: site.description }}">
