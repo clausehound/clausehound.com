@@ -1,0 +1,150 @@
+---
+layout: base.html
+title: Build on Clausehound (draft)
+description: Put the Clausehound engine inside the products you sell. Free to start, with a royalty only once you're earning.
+permalink: /build-draft/
+eleventyExcludeFromCollections: true
+noindex: true
+---
+
+{% comment %}
+  DRAFT, not for launch. Same rules as /pricing-draft/: unlinked, out of the
+  sitemap, noindex. This page sells the engine to builders, a different buyer
+  from the review app, so it carries its own pitch and terms. Every number in
+  <mark class="tbd"> is a proposal for the CEO and board to set.
+{% endcomment %}
+<div class="draft-banner" role="note">
+  <strong>Draft.</strong> Proposed terms for internal review. Not an offer; numbers marked
+  <mark class="tbd">like this</mark> are still to be set.
+</div>
+
+<header class="hero hero--short pricing-hero">
+  <div class="hero-paws" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <h6 class="subheading">Build on Clausehound</h6>
+    <h1>The engine is free until your product earns.</h1>
+    <p class="hero-lede">
+      Put a lawyer-verified corpus of Canadian law and contract structure inside the products you
+      sell. Bring your own AI model, run on our servers or yours, and pay a royalty only once
+      you're past <mark class="tbd">$65k</mark> a year.
+    </p>
+  </div>
+</header>
+
+<section class="content plans">
+  <div class="plan-grid plan-grid--3">
+    <article class="plan">
+      <h3 class="plan-name">Free</h3>
+      <p class="plan-price"><span class="plan-amount">$0</span></p>
+      <p class="plan-sub">no card needed</p>
+      <p class="plan-for">Prototypes and products that aren't earning yet.</p>
+      <a class="button button--quiet plan-cta" href="#contact">Start building</a>
+      <ul class="plan-features">
+        <li>Up to <mark class="tbd">100</mark> of your own documents</li>
+        <li>The public statute corpus</li>
+        <li>GraphQL and MCP access</li>
+        <li>Hosted by us</li>
+      </ul>
+    </article>
+
+    <article class="plan plan--featured">
+      <span class="plan-badge">Pay when it pays</span>
+      <h3 class="plan-name">Royalty, hosted</h3>
+      <p class="plan-price"><span class="plan-amount">0%</span> <span class="plan-unit">up to <mark class="tbd">$65k</mark> a year</span></p>
+      <p class="plan-sub">then <mark class="tbd">5%</mark> on revenue above it</p>
+      <p class="plan-for">Ship on our servers and grow without a bill until you're earning.</p>
+      <a class="button plan-cta" href="#contact">Become a builder</a>
+      <ul class="plan-features">
+        <li>Unlimited documents</li>
+        <li>Lower rates as you grow</li>
+        <li>Fair-use rate limits, no usage fees</li>
+        <li>Listed as built on Clausehound</li>
+      </ul>
+    </article>
+
+    <article class="plan">
+      <h3 class="plan-name">Royalty, self-hosted</h3>
+      <p class="plan-price"><span class="plan-amount plan-amount--text">Same royalty</span></p>
+      <p class="plan-sub">you carry the compute</p>
+      <p class="plan-for">Run the engine in your own cloud or data centre.</p>
+      <a class="button button--quiet plan-cta" href="#contact">Talk to us</a>
+      <ul class="plan-features">
+        <li>Everything in Royalty, hosted</li>
+        <li>No usage limits from us</li>
+        <li>Your infrastructure, your data residency</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="rates">
+    <h3>Royalty volume rates</h3>
+    <p>Each rate applies only to the revenue in its band, so earning more never costs you more on what came before.</p>
+    <table class="rate-table">
+      <thead>
+        <tr><th scope="col">Attributable revenue in a year</th><th scope="col">Royalty on that band</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Up to <mark class="tbd">$65k</mark></td><td>0%</td></tr>
+        <tr><td>The next <mark class="tbd">$1M</mark></td><td><mark class="tbd">5%</mark></td></tr>
+        <tr><td>The next <mark class="tbd">$4M</mark></td><td><mark class="tbd">3%</mark></td></tr>
+        <tr><td>Everything above that</td><td><mark class="tbd">2%</mark></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="pricing-crosslink">
+    Just want to review your own contracts? <a href="/pricing-draft/">See app pricing</a>.
+  </p>
+</section>
+
+<section class="content tint faq" id="faq">
+  <div class="section-intro">
+    <h6 class="subheading">Questions</h6>
+    <h2>The terms, in plain words.</h2>
+  </div>
+  <div class="faq-list">
+    <details>
+      <summary>Do I need my own AI model?</summary>
+      <p>Yes. Builders bring their own model and tokens, so Clausehound never bills you for inference.</p>
+    </details>
+    <details>
+      <summary>What counts as attributable revenue?</summary>
+      <p>Gross revenue from products that call the Clausehound API or MCP server. Products that don't use the engine don't count.</p>
+    </details>
+    <details>
+      <summary>Can I split my products to stay under the threshold?</summary>
+      <p>No. Every company under common control is one account, and the threshold counts your whole portfolio.</p>
+    </details>
+    <details>
+      <summary>What does fair use mean on hosted plans?</summary>
+      <p>Hosted accounts are rate-limited so one product can't slow down everyone else. If yours outgrows that, we'll talk first and help you move to a dedicated or self-hosted deployment. There are no usage fees either way.</p>
+    </details>
+    <details>
+      <summary>How do I report revenue?</summary>
+      <p>Quarterly, once you're over the threshold. Below it, there's nothing to file. Standard audit rights apply.</p>
+    </details>
+    <details>
+      <summary>Do referrals pay?</summary>
+      <p>Yes. Send a customer to a Clausehound subscription and earn <mark class="tbd">20%</mark> of its first year.</p>
+    </details>
+    <details>
+      <summary>Who owns my data?</summary>
+      <p>You do. Export it whole at any time, and get <mark class="tbd">6–12 months'</mark> notice before we end a service.</p>
+    </details>
+    <details>
+      <summary>Can I sell my product?</summary>
+      <p>Yes. The agreement moves with a sale of your company or of a single product line, and survives a change of control at Clausehound.</p>
+    </details>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-body">
+    <div class="contact-copy">
+      <h6>Builders</h6>
+      <h2>Tell us what you're building.</h2>
+      <p>We'll set up your account, or work out a licence that fits a deployment of your own.</p>
+      <p class="contact-alt">Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+    </div>
+  </div>
+</section>

@@ -2127,46 +2127,11 @@ body:has(.draft-banner) {
   padding-bottom: 4rem;
 }
 
-/* Plan switch: two radio-driven plan sets, no JS. */
-.plan-switch {
-  background: var(--color-secondary);
-  border: 1px solid var(--color-hairline);
-  border-radius: 50rem;
-  display: flex;
-  margin: 0 auto calc(var(--spacingGap) * 2);
-  padding: 0.3rem;
-  width: max-content;
-  max-width: 100%;
-}
-
-.plan-switch input {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-}
-
-.plan-switch label {
-  border-radius: 50rem;
+/* One line pointing to the other product's pricing. */
+.pricing-crosslink {
   color: var(--color-gray);
-  cursor: pointer;
-  font-weight: 500;
-  padding: 0.55rem 1.25rem;
+  margin: calc(var(--spacingGap) * 2) auto 0;
   text-align: center;
-  transition: background 200ms ease, color 200ms ease;
-}
-
-.plan-switch input:checked + label {
-  background: var(--color-black);
-  color: var(--color-white);
-}
-
-.plan-switch input:focus-visible + label {
-  outline: 2px solid var(--color-primary);
-}
-
-.plans:has(#plans-app:checked) .plan-set--builders,
-.plans:has(#plans-builders:checked) .plan-set--app {
-  display: none;
 }
 
 .plan-set-intro {

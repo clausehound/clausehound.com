@@ -1,7 +1,7 @@
 ---
 layout: base.html
 title: Pricing (draft)
-description: Clausehound pricing for teams that use the app and for builders that put the engine inside their own products.
+description: Clausehound plans for reviewing your own contracts against lawyer-written playbooks.
 permalink: /pricing-draft/
 eleventyExcludeFromCollections: true
 noindex: true
@@ -10,9 +10,10 @@ noindex: true
 {% comment %}
   DRAFT, not for launch. Unlinked on purpose: excluded from collections (so
   not in the sitemap), noindex via the `noindex` front matter in head.html,
-  and nothing on the site points here. Every number in <mark class="tbd"> is
-  a proposal for the CEO and board to set. Move to /pricing/ and drop the
-  banner, `noindex` and the exclusion only once the terms are approved.
+  and nothing on the site points here except its sibling /build-draft/.
+  Every number in <mark class="tbd"> is a proposal for the CEO and board to
+  set. This page sells the review app; builder pricing lives on /build-draft/
+  because it is a different product sold to a different buyer.
 {% endcomment %}
 <div class="draft-banner" role="note">
   <strong>Draft.</strong> Proposed pricing for internal review. Not an offer; numbers marked
@@ -23,164 +24,90 @@ noindex: true
   <div class="hero-paws" aria-hidden="true"></div>
   <div class="hero-copy">
     <h6 class="subheading">Pricing</h6>
-    <h1>Public prices. Start free.</h1>
+    <h1>Review contracts against a lawyer-written playbook.</h1>
     <p class="hero-lede">
-      Review your own contracts in the app, or build the engine into products you sell. Every
-      finding is tied to its source, and nothing here needs a sales call to see.
+      Start free. Every finding cites its clause and the law behind it, drawn from a corpus that
+      lawyers build and verify. Prices are public, and none of them needs a sales call.
     </p>
   </div>
 </header>
 
-{% comment %}Two plan sets, switched by radio inputs with no JS (same pattern
-as the hero code tabs). Without :has() both sets show, one above the other.{% endcomment %}
 <section class="content plans">
-  <div class="plan-switch" role="radiogroup" aria-label="Show pricing for">
-    <input type="radio" name="plan-set" id="plans-app" checked>
-    <label for="plans-app">Review contracts</label>
-    <input type="radio" name="plan-set" id="plans-builders">
-    <label for="plans-builders">Build on the engine</label>
+  <div class="plan-grid">
+    <article class="plan">
+      <h3 class="plan-name">Starter</h3>
+      <p class="plan-price"><span class="plan-amount">$0</span></p>
+      <p class="plan-sub">or <mark class="tbd">$19</mark> / month for more documents</p>
+      <p class="plan-for">Check a contract before you sign it.</p>
+      <a class="button plan-cta" href="{{ site.appUrl }}">Start free</a>
+      <ul class="plan-features">
+        <li>One lawyer-written playbook (NDA check)</li>
+        <li><mark class="tbd">3</mark> documents a month free, <mark class="tbd">10</mark> on paid</li>
+        <li>Guided review, finding by finding</li>
+        <li>What's changed in the law since it was signed</li>
+      </ul>
+    </article>
+
+    <article class="plan plan--featured">
+      <span class="plan-badge">For professionals</span>
+      <h3 class="plan-name">Pro</h3>
+      <p class="plan-price"><span class="plan-amount"><mark class="tbd">$149</mark></span> <span class="plan-unit">per user / month</span></p>
+      <p class="plan-sub">billed annually</p>
+      <p class="plan-for">For solo lawyers, founders and small in-house teams.</p>
+      <a class="button plan-cta" href="/#contact">Get Pro</a>
+      <ul class="plan-features">
+        <li>Everything in Starter</li>
+        <li>Every standard playbook</li>
+        <li>Autonomous analysis across a portfolio</li>
+        <li>Word export with tracked changes</li>
+        <li>Monthly document allowance</li>
+      </ul>
+    </article>
+
+    <article class="plan">
+      <h3 class="plan-name">Team</h3>
+      <p class="plan-price"><span class="plan-from">from</span> <span class="plan-amount"><mark class="tbd">$299</mark></span> <span class="plan-unit">per user / month</span></p>
+      <p class="plan-sub">billed annually</p>
+      <p class="plan-for">For legal departments with their own standards.</p>
+      <a class="button button--quiet plan-cta" href="/#contact">Talk to us</a>
+      <ul class="plan-features">
+        <li>Everything in Pro</li>
+        <li>Playbooks built from your own precedent</li>
+        <li>Single sign-on</li>
+        <li>Shared review across the team</li>
+      </ul>
+    </article>
+
+    <article class="plan">
+      <h3 class="plan-name">Enterprise</h3>
+      <p class="plan-price"><span class="plan-amount plan-amount--text">Custom</span></p>
+      <p class="plan-sub">&nbsp;</p>
+      <p class="plan-for">Your deployment, run by the engineers who built it.</p>
+      <a class="button button--quiet plan-cta" href="/#contact">Talk to us</a>
+      <ul class="plan-features">
+        <li>Everything in Team</li>
+        <li>Behind your firewall, or in your cloud</li>
+        <li>Your own AI model and provider</li>
+        <li>Support and SLAs</li>
+      </ul>
+    </article>
   </div>
 
-  <div class="plan-set plan-set--app" id="app">
-    <div class="plan-grid">
-      <article class="plan">
-        <h3 class="plan-name">Starter</h3>
-        <p class="plan-price"><span class="plan-amount">$0</span></p>
-        <p class="plan-sub">or <mark class="tbd">$19</mark> / month for more documents</p>
-        <p class="plan-for">Check a contract before you sign it.</p>
-        <a class="button plan-cta" href="{{ site.appUrl }}">Start free</a>
-        <ul class="plan-features">
-          <li>One lawyer-written playbook (NDA check)</li>
-          <li><mark class="tbd">3</mark> documents a month free, <mark class="tbd">10</mark> on paid</li>
-          <li>Guided review, finding by finding</li>
-          <li>Every finding cites its clause</li>
-        </ul>
-      </article>
-
-      <article class="plan plan--featured">
-        <span class="plan-badge">Most popular</span>
-        <h3 class="plan-name">Pro</h3>
-        <p class="plan-price"><span class="plan-amount"><mark class="tbd">$149</mark></span> <span class="plan-unit">per user / month</span></p>
-        <p class="plan-sub">billed annually</p>
-        <p class="plan-for">For solo lawyers, founders and small in-house teams.</p>
-        <a class="button plan-cta" href="/#contact">Get Pro</a>
-        <ul class="plan-features">
-          <li>Everything in Starter</li>
-          <li>Every standard playbook</li>
-          <li>Autonomous analysis across a portfolio</li>
-          <li>Word export with tracked changes</li>
-          <li>Monthly document allowance</li>
-        </ul>
-      </article>
-
-      <article class="plan">
-        <h3 class="plan-name">Team</h3>
-        <p class="plan-price"><span class="plan-from">from</span> <span class="plan-amount"><mark class="tbd">$299</mark></span> <span class="plan-unit">per user / month</span></p>
-        <p class="plan-sub">billed annually</p>
-        <p class="plan-for">For legal departments with their own standards.</p>
-        <a class="button button--quiet plan-cta" href="/#contact">Talk to us</a>
-        <ul class="plan-features">
-          <li>Everything in Pro</li>
-          <li>Playbooks built from your own precedent</li>
-          <li>Single sign-on</li>
-          <li>GraphQL and MCP access for your systems and agents</li>
-        </ul>
-      </article>
-
-      <article class="plan">
-        <h3 class="plan-name">Enterprise</h3>
-        <p class="plan-price"><span class="plan-amount plan-amount--text">Custom</span></p>
-        <p class="plan-sub">&nbsp;</p>
-        <p class="plan-for">Your deployment, run by the engineers who built it.</p>
-        <a class="button button--quiet plan-cta" href="/#contact">Talk to us</a>
-        <ul class="plan-features">
-          <li>Everything in Team</li>
-          <li>Behind your firewall, or in your cloud</li>
-          <li>Your own AI model and provider</li>
-          <li>Support and SLAs</li>
-        </ul>
-      </article>
+  <div class="addons">
+    <h3>Add-ons</h3>
+    <div class="addon">
+      <div><strong>Single report</strong><span>One contract, a full autonomous run of a standard playbook and a Word copy with tracked changes. No subscription.</span></div>
+      <p class="addon-price"><mark class="tbd">$79</mark> per report</p>
     </div>
-
-    <div class="addons">
-      <h3>Add-ons</h3>
-      <div class="addon">
-        <div><strong>Single report</strong><span>One contract, a full autonomous run of a standard playbook and a Word copy with tracked changes. No subscription.</span></div>
-        <p class="addon-price"><mark class="tbd">$79</mark> per report</p>
-      </div>
-      <div class="addon">
-        <div><strong>Lawyer-verified</strong><span>A lawyer confirms or corrects every finding and signs off before you rely on it.</span></div>
-        <p class="addon-price">Quoted per report</p>
-      </div>
+    <div class="addon">
+      <div><strong>Lawyer-verified</strong><span>A lawyer confirms or corrects every finding and signs off before you rely on it.</span></div>
+      <p class="addon-price">Quoted per report</p>
     </div>
   </div>
 
-  <div class="plan-set plan-set--builders" id="builders">
-    <p class="plan-set-intro">
-      For software companies, agencies and studios putting Clausehound inside products they sell.
-      Bring your own AI model and tokens, run on our servers or yours, and pay a royalty only once
-      you're earning.
-    </p>
-    <div class="plan-grid plan-grid--3">
-      <article class="plan">
-        <h3 class="plan-name">Free</h3>
-        <p class="plan-price"><span class="plan-amount">$0</span></p>
-        <p class="plan-sub">no card needed</p>
-        <p class="plan-for">Prototypes and products that aren't earning yet.</p>
-        <a class="button button--quiet plan-cta" href="/#contact">Start building</a>
-        <ul class="plan-features">
-          <li>Up to <mark class="tbd">100</mark> of your own documents</li>
-          <li>The public statute corpus</li>
-          <li>GraphQL and MCP access</li>
-          <li>Hosted by us</li>
-        </ul>
-      </article>
-
-      <article class="plan plan--featured">
-        <span class="plan-badge">Pay when it pays</span>
-        <h3 class="plan-name">Royalty, hosted</h3>
-        <p class="plan-price"><span class="plan-amount">0%</span> <span class="plan-unit">up to <mark class="tbd">$65k</mark> a year</span></p>
-        <p class="plan-sub">then <mark class="tbd">5%</mark> on revenue above it</p>
-        <p class="plan-for">Ship on our servers and grow without a bill until you're earning.</p>
-        <a class="button plan-cta" href="/#contact">Become a builder</a>
-        <ul class="plan-features">
-          <li>Unlimited documents</li>
-          <li>Lower rates as you grow</li>
-          <li>Fair-use rate limits, no usage fees</li>
-          <li>Listed as built on Clausehound</li>
-        </ul>
-      </article>
-
-      <article class="plan">
-        <h3 class="plan-name">Royalty, self-hosted</h3>
-        <p class="plan-price"><span class="plan-amount plan-amount--text">Same royalty</span></p>
-        <p class="plan-sub">you carry the compute</p>
-        <p class="plan-for">Run the engine in your own cloud or data centre.</p>
-        <a class="button button--quiet plan-cta" href="/#contact">Talk to us</a>
-        <ul class="plan-features">
-          <li>Everything in Royalty, hosted</li>
-          <li>No usage limits from us</li>
-          <li>Your infrastructure, your data residency</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="rates">
-      <h3>Royalty volume rates</h3>
-      <p>Each rate applies only to the revenue in its band, so earning more never costs you more on what came before.</p>
-      <table class="rate-table">
-        <thead>
-          <tr><th scope="col">Attributable revenue in a year</th><th scope="col">Royalty on that band</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Up to <mark class="tbd">$65k</mark></td><td>0%</td></tr>
-          <tr><td>The next <mark class="tbd">$1M</mark></td><td><mark class="tbd">5%</mark></td></tr>
-          <tr><td>The next <mark class="tbd">$4M</mark></td><td><mark class="tbd">3%</mark></td></tr>
-          <tr><td>Everything above that</td><td><mark class="tbd">2%</mark></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <p class="pricing-crosslink">
+    Building a product of your own? <a href="/build-draft/">See engine pricing</a>.
+  </p>
 </section>
 
 <section class="content tint faq" id="faq">
@@ -190,36 +117,32 @@ as the hero code tabs). Without :has() both sets show, one above the other.{% en
   </div>
   <div class="faq-list">
     <details>
-      <summary>Do I need my own AI model?</summary>
-      <p>Builders bring their own model and tokens, so Clausehound never bills you for inference. App plans work out of the box.</p>
+      <summary>What is a playbook?</summary>
+      <p>The checks a lawyer would run on one kind of contract: what a good clause looks like, why it matters and example language to fix it. Clausehound runs them against your document and shows you where each one lands.</p>
     </details>
     <details>
-      <summary>What counts as attributable revenue?</summary>
-      <p>Gross revenue from products that call the Clausehound API or MCP server. Products that don't use the engine don't count.</p>
+      <summary>Who stands behind the findings?</summary>
+      <p>Lawyers build and verify the corpus: Canadian statutes and regulations, tracked version by version. Every finding cites the clause it is about and the source it rests on, so you can check it yourself.</p>
     </details>
     <details>
-      <summary>Can I split my products to stay under the threshold?</summary>
-      <p>No. Every company under common control is one account, and the threshold counts your whole portfolio.</p>
+      <summary>What does "changed since it was signed" mean?</summary>
+      <p>Tell us when a contract was signed and we list the changes to the law since then that bear on it, each with its citation and effective date.</p>
     </details>
     <details>
-      <summary>What does fair use mean on hosted plans?</summary>
-      <p>Hosted accounts are rate-limited so one product can't slow down everyone else. If yours outgrows that, we'll talk first and help you move to a dedicated or self-hosted deployment. There are no usage fees either way.</p>
+      <summary>What counts as a document?</summary>
+      <p>One contract reviewed against one playbook. Re-running the same contract after you edit it doesn't count again.</p>
     </details>
     <details>
-      <summary>How do I report revenue?</summary>
-      <p>Quarterly, once you're over the threshold. Below it, there's nothing to file. Standard audit rights apply.</p>
+      <summary>Is this legal advice?</summary>
+      <p>No. It's a review tool. When you need a lawyer to stand behind the result, add Lawyer-verified.</p>
     </details>
     <details>
-      <summary>Do referrals pay?</summary>
-      <p>Yes. Send a customer to a Clausehound subscription and earn <mark class="tbd">20%</mark> of its first year.</p>
+      <summary>Do I need my own AI account?</summary>
+      <p>No. The app works out of the box. Only Enterprise deployments can bring their own model.</p>
     </details>
     <details>
-      <summary>Who owns my data?</summary>
-      <p>You do. Export it whole at any time, and get <mark class="tbd">6–12 months'</mark> notice before we end a service.</p>
-    </details>
-    <details>
-      <summary>Can I sell my product?</summary>
-      <p>Yes. The agreement moves with a sale of your company or of a single product line, and survives a change of control at Clausehound.</p>
+      <summary>Can I change plans?</summary>
+      <p>Upgrade at any time. Downgrades take effect at renewal.</p>
     </details>
   </div>
 </section>
@@ -227,9 +150,9 @@ as the hero code tabs). Without :has() both sets show, one above the other.{% en
 <section class="contact" id="contact">
   <div class="contact-body">
     <div class="contact-copy">
-      <h6>Custom terms</h6>
-      <h2>Need something different?</h2>
-      <p>Enterprise support, SLAs or a deployment of your own: we'll work out a licence that fits.</p>
+      <h6>Teams and firms</h6>
+      <h2>Reviewing at volume?</h2>
+      <p>Playbooks from your own precedent, single sign-on, or a deployment of your own: we'll set it up with you.</p>
       <p class="contact-alt">Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
     </div>
   </div>
