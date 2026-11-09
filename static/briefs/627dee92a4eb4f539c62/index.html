@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Cannabis Legal Age: Germany and Canada · Clausehound</title>
+<style>
+:root {
+  --pop: #FFBA52; --sapphire: #386192; --icy: #B0D3D1; --surface: #EEF5F5;
+  --parakeet: #008C69; --green-text: #00704F; --aurora: #EDDD59;
+  --ink: #14223A; --text: #2A3441; --gray: #4E5A68; --light-gray: #5F6B79;
+  --hairline: #D6E5E4; --white: #FFFFFF;
+  --no: #A63D2F; --no-tint: #FBEAE7; --yes-tint: #E0F2EC;
+  --age18: #6FA9A5; --age19: var(--sapphire); --age21: #D98A1C;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--surface); color: var(--text);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+header.hero {
+  background: var(--ink); color: var(--white); position: relative; overflow: hidden;
+  padding: 56px 0 64px;
+}
+header.hero::before {
+  content: ""; position: absolute; inset: -40% -10% auto auto; width: 70%; height: 180%;
+  background: radial-gradient(closest-side, rgb(56 97 146 / 0.55), transparent);
+}
+header.hero::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(rgb(0 140 105 / 0.3) 1.2px, transparent 1.3px);
+  background-size: 22px 22px; mask-image: linear-gradient(to left, #000, transparent 70%);
+}
+header .wrap { position: relative; z-index: 1; }
+.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 0.72rem; color: var(--light-gray); margin: 0 0 12px; }
+header .eyebrow { color: var(--icy); }
+h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; font-weight: 700; }
+h1 .swash { background: linear-gradient(transparent 62%, rgb(237 221 89 / 0.55) 62%); }
+header p.lead { max-width: 640px; color: var(--icy); font-size: 1.12rem; margin: 0; }
+header .meta { margin-top: 22px; font-size: 0.85rem; color: var(--icy); }
+main { padding: 40px 0 72px; }
+section { margin-top: 56px; }
+section:first-child { margin-top: 0; }
+h2 { color: var(--sapphire); font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: 0 0 8px; }
+p.sub { color: var(--gray); margin: 0 0 24px; max-width: 720px; }
+
+/* Country cards */
+.countries { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: -88px; position: relative; z-index: 2; }
+.card {
+  background: var(--white); border: 1px solid var(--hairline); border-top: 4px solid var(--pop);
+  border-radius: 12px; padding: 28px; box-shadow: 0 24px 60px rgb(20 34 58 / 0.12);
+}
+.card .head { display: flex; align-items: center; gap: 16px; }
+.card .head svg { flex: none; width: 72px; height: 43px; border: 1px solid var(--hairline); border-radius: 3px; }
+.card h3 { margin: 0; color: var(--ink); font-size: 1.5rem; line-height: 1.1; }
+.card .law { font-size: 0.85rem; color: var(--light-gray); }
+.big { display: flex; align-items: center; gap: 20px; margin: 22px 0 18px; }
+.big .n { font-size: 5rem; font-weight: 800; line-height: 0.9; color: var(--sapphire); font-variant-numeric: tabular-nums; }
+.big .what strong { display: block; color: var(--ink); }
+.big .what span { display: block; color: var(--gray); font-size: 0.95rem; }
+.big .what .flag { color: #B36A00; font-weight: 700; }
+.lane { margin-top: 14px; }
+.lane .lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: var(--light-gray); margin-bottom: 6px; }
+.bar { display: flex; gap: 3px; height: 34px; }
+.bar > div {
+  display: flex; align-items: center; justify-content: center; border-radius: 6px;
+  font-size: 0.82rem; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden;
+}
+.bar .no { background: var(--no-tint); border: 1px solid rgb(166 61 47 / 0.45); }
+.bar .lim { background: rgb(255 186 82 / 0.35); border: 1px solid var(--pop); }
+.bar .yes { background: var(--yes-tint); border: 1px solid rgb(0 140 105 / 0.5); }
+.ticks { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--light-gray); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.notes { margin: 18px 0 0; padding: 0 0 0 14px; border-left: 3px solid var(--pop); font-size: 0.92rem; color: var(--text); }
+.notes li { list-style: none; margin: 2px 0; }
+.cite { font-size: 0.8rem; color: var(--light-gray); margin-top: 14px; }
+.cite::before, td.c .s::before { content: "§ "; color: var(--parakeet); font-weight: 700; }
+
+/* Province map */
+.mapcard { background: var(--white); border: 1px solid var(--hairline); border-radius: 12px; padding: 28px; }
+.tiles { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; max-width: 760px; }
+.tile {
+  aspect-ratio: 1; border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column;
+  justify-content: space-between; border: 1.5px solid; background: var(--white);
+}
+.tile .code { font-size: 0.8rem; font-weight: 700; color: var(--ink); letter-spacing: 1px; }
+.tile .age { font-size: clamp(1.1rem, 4vw, 2.1rem); font-weight: 800; text-align: center; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
+.tile .sec { font-size: 0.68rem; text-align: center; color: var(--light-gray); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.t18 { border-color: var(--age18); background: rgb(111 169 165 / 0.16); }
+.t19 { border-color: var(--age19); background: rgb(56 97 146 / 0.12); }
+.t21 { border-color: var(--age21); background: rgb(255 186 82 / 0.28); }
+.tnone { border: 1.5px dashed var(--hairline); }
+.tnone .code, .tnone .age { color: var(--light-gray); }
+.empty { visibility: hidden; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 20px; font-size: 0.88rem; color: var(--gray); }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid; vertical-align: -2px; margin-right: 6px; }
+
+/* Tables */
+.tablecard { background: var(--white); border: 1px solid var(--hairline); border-radius: 12px; overflow: hidden; }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 640px; }
+th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--light-gray); font-weight: 600; padding: 14px 16px; background: var(--surface); border-bottom: 1px solid var(--hairline); }
+td { padding: 14px 16px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+td.j { font-weight: 700; color: var(--ink); white-space: nowrap; }
+td.a { font-weight: 800; color: var(--sapphire); font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+td.c .s { display: block; font-size: 0.8rem; color: var(--light-gray); margin-top: 4px; }
+a { color: var(--sapphire); text-decoration-color: rgb(56 97 146 / 0.35); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--pop); }
+
+.band { background: var(--ink); color: var(--icy); border-radius: 12px; padding: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.band .n { font-size: 2.4rem; font-weight: 800; color: var(--pop); line-height: 1; }
+.band .l { font-size: 0.92rem; margin-top: 6px; }
+
+.sources li { margin: 6px 0; }
+footer { border-top: 1px solid var(--hairline); padding: 28px 0 48px; font-size: 0.85rem; color: var(--light-gray); }
+footer strong { color: var(--ink); }
+
+@media (max-width: 800px) {
+  .countries { grid-template-columns: 1fr; margin-top: -64px; }
+  .band { grid-template-columns: 1fr; }
+  .tiles { gap: 5px; }
+  .tile { padding: 4px 5px; border-radius: 6px; }
+  .tile .code { font-size: 0.62rem; }
+  .tile .sec { display: none; }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Clausehound · Regulatory brief</p>
+    <h1>Cannabis legal age: <span class="swash">Germany and Canada.</span></h1>
+    <p class="lead">Both countries set the national minimum at 18. Germany adds a restricted tier until 21; Canada lets each province set its own age, and nine of ten set it higher.</p>
+    <p class="meta">Current to 9 November 2026 · Every figure cited to the statute section that sets it</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="countries">
+      <article class="card">
+        <div class="head">
+          <svg viewBox="0 0 60 36" aria-label="Flag of Germany" role="img"><rect width="60" height="12" fill="#000"/><rect y="12" width="60" height="12" fill="#DD0000"/><rect y="24" width="60" height="12" fill="#FFCE00"/></svg>
+          <div><h3>Germany</h3><div class="law">Consumer Cannabis Act (KCanG), 2024</div></div>
+        </div>
+        <div class="big"><div class="n">18</div><div class="what"><strong>Minimum legal age</strong><span>Same age nationwide</span><span>Full club limits from 21</span></div></div>
+        <div class="lane">
+          <div class="lbl">Nationwide</div>
+          <div class="bar"><div class="no" style="flex:2">Under 18</div><div class="lim" style="flex:3">18–20 limited</div><div class="yes" style="flex:3">21+</div></div>
+          <div class="ticks"><span>16</span><span>18</span><span>20</span><span>22</span><span>24</span></div>
+        </div>
+        <ul class="notes">
+          <li>Ages 18–20: max 30 g/month from clubs, THC ≤ 10%</li>
+          <li>21+: up to 50 g/month from clubs</li>
+          <li>Home grow (3 plants) from 18</li>
+        </ul>
+        <div class="cite">KCanG §§ 1 No. 20, 3, 9, 16, 19(3)</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <svg viewBox="0 0 72 36" aria-label="Flag of Canada" role="img"><rect width="72" height="36" fill="#FFF"/><rect width="18" height="36" fill="#D52B1E"/><rect x="54" width="18" height="36" fill="#D52B1E"/><polygon transform="translate(36 18) scale(1.4)" fill="#D52B1E" points="0,-10 2,-6 4,-7 3.5,-2 7,-5 8,-3 10,-4 9,0 10,1 5,4 6,6 1,5 1,10 -1,10 -1,5 -6,6 -5,4 -10,1 -9,0 -10,-4 -8,-3 -7,-5 -3.5,-2 -4,-7 -2,-6"/></svg>
+          <div><h3>Canada</h3><div class="law">Cannabis Act, S.C. 2018, c. 16</div></div>
+        </div>
+        <div class="big"><div class="n">18</div><div class="what"><strong>Federal minimum age</strong><span>Provinces can set it higher</span><span class="flag">Quebec sets 21</span></div></div>
+        <div class="lane">
+          <div class="lbl">Federal floor</div>
+          <div class="bar"><div class="no" style="flex:2">Under 18</div><div class="yes" style="flex:6">18+</div></div>
+        </div>
+        <div class="lane">
+          <div class="lbl">8 of 10 provinces</div>
+          <div class="bar"><div class="no" style="flex:3">Under 19</div><div class="yes" style="flex:5">19+</div></div>
+        </div>
+        <div class="lane">
+          <div class="lbl">Quebec</div>
+          <div class="bar"><div class="no" style="flex:5">Under 21</div><div class="yes" style="flex:3">21+</div></div>
+          <div class="ticks"><span>16</span><span>18</span><span>20</span><span>22</span><span>24</span></div>
+        </div>
+        <div class="cite">Cannabis Act ss. 2, 8, 9, 12 · provincial Acts below</div>
+      </article>
+    </div>
+
+    <section>
+      <p class="eyebrow">Across Canada</p>
+      <h2>Most provinces set 19.</h2>
+      <p class="sub">Alberta keeps the federal 18; Quebec is the outlier at 21. Each tile shows the section of the provincial Act that sets the age.</p>
+      <div class="mapcard">
+        <div class="tiles" role="img" aria-label="Map of minimum cannabis age by province: BC 19, AB 18, SK 19, MB 19, ON 19, QC 21, NB 19, NS 19, PE 19, NL 19; territories not reviewed">
+          <div class="tile tnone"><span class="code">YT</span><span class="age">–</span><span class="sec">not reviewed</span></div>
+          <div class="tile tnone"><span class="code">NT</span><span class="age">–</span><span class="sec">not reviewed</span></div>
+          <div class="tile tnone"><span class="code">NU</span><span class="age">–</span><span class="sec">not reviewed</span></div>
+          <div class="tile empty"></div><div class="tile empty"></div><div class="tile empty"></div>
+          <div class="tile t19"><span class="code">NL</span><span class="age">19</span><span class="sec">s. 66</span></div>
+          <div class="tile t19"><span class="code">BC</span><span class="age">19</span><span class="sec">s. 73</span></div>
+          <div class="tile t18"><span class="code">AB</span><span class="age">18</span><span class="sec">s. 90.26</span></div>
+          <div class="tile t19"><span class="code">SK</span><span class="age">19</span><span class="sec">s. 2-1</span></div>
+          <div class="tile t19"><span class="code">MB</span><span class="age">19</span><span class="sec">s. 101.18</span></div>
+          <div class="tile t19"><span class="code">ON</span><span class="age">19</span><span class="sec">ss. 7, 10</span></div>
+          <div class="tile t21"><span class="code">QC</span><span class="age">21</span><span class="sec">s. 4</span></div>
+          <div class="tile t19"><span class="code">PE</span><span class="age">19</span><span class="sec">s. 7</span></div>
+          <div class="tile empty"></div><div class="tile empty"></div><div class="tile empty"></div><div class="tile empty"></div><div class="tile empty"></div>
+          <div class="tile t19"><span class="code">NB</span><span class="age">19</span><span class="sec">s. 11</span></div>
+          <div class="tile t19"><span class="code">NS</span><span class="age">19</span><span class="sec">s. 16</span></div>
+        </div>
+        <div class="legend">
+          <span><i style="border-color:var(--age18);background:rgb(111 169 165 / 0.16)"></i>18, same as the federal floor</span>
+          <span><i style="border-color:var(--age19);background:rgb(56 97 146 / 0.12)"></i>19</span>
+          <span><i style="border-color:var(--age21);background:rgb(255 186 82 / 0.28)"></i>21</span>
+          <span><i style="border:1.5px dashed var(--hairline)"></i>Territory, not yet reviewed</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="band">
+        <div><div class="n">18</div><div class="l">National minimum in both Germany and Canada</div></div>
+        <div><div class="n">21</div><div class="l">Germany's full club limits; Quebec's minimum age</div></div>
+        <div><div class="n">12</div><div class="l">Statutes reviewed, each from its official consolidation</div></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">The provisions</p>
+      <h2>Where each age comes from.</h2>
+      <p class="sub">One row per jurisdiction, linked to the official text. German text is authoritative; the English here is a summary.</p>
+      <div class="tablecard"><div class="scroll">
+        <table>
+          <thead><tr><th>Jurisdiction</th><th>Age</th><th>What the statute says</th><th>Statute</th></tr></thead>
+          <tbody>
+            <tr><td class="j">Germany</td><td class="a">18</td><td class="c">Possession, home grow and club membership from 18. Clubs may give 18–20s at most 30 g/month, max 10% THC.<span class="s">KCanG §§ 1 No. 20, 3, 9(1), 16(1), 19(3)</span></td><td><a href="https://www.gesetze-im-internet.de/kcang/">Konsumcannabisgesetz (KCanG)</a></td></tr>
+            <tr><td class="j">Canada (federal)</td><td class="a">18</td><td class="c">Possession, distribution and home cultivation rules apply to individuals 18+; a "young person" is under 18.<span class="s">Cannabis Act ss. 2, 8, 9, 12</span></td><td><a href="https://laws-lois.justice.gc.ca/eng/acts/C-24.5/">Cannabis Act, S.C. 2018, c. 16</a></td></tr>
+            <tr><td class="j">Quebec</td><td class="a">21</td><td class="c">Prohibited for a person under 21 to possess or give cannabis.<span class="s">s. 4</span></td><td><a href="https://www.legisquebec.gouv.qc.ca/en/document/cs/C-5.3">Cannabis Regulation Act, CQLR c C-5.3</a></td></tr>
+            <tr><td class="j">British Columbia</td><td class="a">19</td><td class="c">A minor must not possess, consume or purchase cannabis; "minor" is under 19.<span class="s">ss. 1, 73(1)</span></td><td><a href="https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/18029">Cannabis Control and Licensing Act, S.B.C. 2018, c. 29</a></td></tr>
+            <tr><td class="j">Saskatchewan</td><td class="a">19</td><td class="c">No minor shall purchase, possess or consume cannabis; "minor" is under 19.<span class="s">ss. 1-2, 2-1(1)</span></td><td><a href="https://publications.saskatchewan.ca/api/v1/products/92030/formats/108995/download">Cannabis Control (Saskatchewan) Act, S.S. 2018, c. C-2.111</a></td></tr>
+            <tr><td class="j">Manitoba</td><td class="a">19</td><td class="c">A young person must not possess or consume cannabis; "young person" is under 19.<span class="s">ss. 1, 101.18</span></td><td><a href="https://web2.gov.mb.ca/laws/statutes/ccsm/l153.php">Liquor, Gaming and Cannabis Control Act, C.C.S.M. c. L153</a></td></tr>
+            <tr><td class="j">Ontario</td><td class="a">19</td><td class="c">No sale to, or possession, consumption or cultivation by, anyone under 19.<span class="s">ss. 7, 10</span></td><td><a href="https://www.ontario.ca/laws/statute/17c26">Cannabis Control Act, 2017, S.O. 2017, c. 26, Sch. 1</a></td></tr>
+            <tr><td class="j">New Brunswick</td><td class="a">19</td><td class="c">No person under 19 shall have cannabis in their possession.<span class="s">s. 11</span></td><td><a href="https://laws.gnb.ca/en/document/cs/2018-c.2">Cannabis Control Act, S.N.B. 2018, c. 2</a></td></tr>
+            <tr><td class="j">Nova Scotia</td><td class="a">19</td><td class="c">No young person shall possess, consume or purchase cannabis; "young person" is under 19.<span class="s">ss. 3(n), 16(1)</span></td><td><a href="https://nslegislature.ca/sites/default/files/legc/statutes/cannabis%20control.pdf">Cannabis Control Act, S.N.S. 2018, c. 3</a></td></tr>
+            <tr><td class="j">Prince Edward Island</td><td class="a">19</td><td class="c">No person under 19 shall have cannabis in their possession.<span class="s">s. 7</span></td><td><a href="https://www.princeedwardisland.ca/sites/default/files/legislation/c-01-2-cannabis_control_act.pdf">Cannabis Control Act, R.S.P.E.I. 1988, c. C-1.2</a></td></tr>
+            <tr><td class="j">Newfoundland and Labrador</td><td class="a">19</td><td class="c">A person under 19 shall not purchase, obtain or possess cannabis.<span class="s">s. 66(1)</span></td><td><a href="https://assembly.nl.ca/Legislation/sr/statutes/c04-1.htm">Cannabis Control Act, S.N.L. 2018, c. C-4.1</a></td></tr>
+            <tr><td class="j">Alberta</td><td class="a">18</td><td class="c">No minor may purchase, obtain or possess cannabis; "minor" is under 18.<span class="s">ss. 1(1)(w), 90.26</span></td><td><a href="https://kings-printer.alberta.ca/documents/Acts/G01.pdf">Gaming, Liquor and Cannabis Act, R.S.A. 2000, c. G-1</a></td></tr>
+          </tbody>
+        </table>
+      </div></div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Method</p>
+      <h2>How this was prepared.</h2>
+      <p class="sub">Each statute was taken from its government's official consolidation and loaded into the Clausehound statute corpus with section-level anchors, so every figure above traces to the section that sets it. No secondary sources were used. The territories are not yet covered. Germany's KCanG consolidation notes an amendment of 22 October 2026 that its publisher has not finished processing. This brief is a summary for discussion, not legal advice.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><strong>Clausehound</strong> · Legislation you can trace to the section. · <a href="https://www.clausehound.com/">clausehound.com</a></div>
+</footer>
+</body>
+</html>
