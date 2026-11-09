@@ -40,6 +40,11 @@ h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; 
 h1 .swash { background: linear-gradient(transparent 62%, rgb(237 221 89 / 0.55) 62%); }
 header p.lead { max-width: 640px; color: var(--icy); font-size: 1.12rem; margin: 0; }
 header .meta { margin-top: 22px; font-size: 0.85rem; color: var(--icy); }
+header .notice {
+  margin-top: 18px; max-width: 640px; padding: 12px 16px; border-radius: 8px; font-size: 0.92rem;
+  background: rgb(255 186 82 / 0.14); border: 1px solid rgb(255 186 82 / 0.6); border-left: 4px solid var(--pop); color: var(--white);
+}
+header .notice strong { color: var(--pop); }
 main { padding: 40px 0 72px; }
 section { margin-top: 56px; }
 section:first-child { margin-top: 0; }
@@ -143,6 +148,7 @@ footer strong { color: var(--ink); }
     <h1>Cannabis legal age: <span class="swash">Germany and Canada.</span></h1>
     <p class="lead">Both countries set the national minimum at 18. Germany adds a restricted tier until 21; Canada lets each province set its own age, and nine of ten set it higher.</p>
     <p class="meta">Current to 9 November 2026 · Every figure cited to the statute section that sets it</p>
+    <div class="notice" role="note"><strong>Demo only.</strong> This brief has not had a lawyer-led review. It is for demonstration purposes only and is not legal advice.</div>
   </div>
 </header>
 
@@ -249,13 +255,13 @@ footer strong { color: var(--ink); }
     <section>
       <p class="eyebrow">Method</p>
       <h2>How this was prepared.</h2>
-      <p class="sub">Each statute was taken from its government's official consolidation and loaded into the Clausehound statute corpus with section-level anchors, so every figure above traces to the section that sets it. No secondary sources were used. The territories are not yet covered. Germany's KCanG consolidation notes an amendment of 22 October 2026 that its publisher has not finished processing. This brief is a summary for discussion, not legal advice.</p>
+      <p class="sub">Each statute was taken from its government's official consolidation and loaded into the Clausehound statute corpus with section-level anchors, so every figure above traces to the section that sets it. No secondary sources were used. The territories are not yet covered. Germany's KCanG consolidation notes an amendment of 22 October 2026 that its publisher has not finished processing. <strong>This brief has not had a lawyer-led review. It is for demonstration purposes only and is not legal advice.</strong></p>
     </section>
   </div>
 </main>
 
 <footer>
-  <div class="wrap"><strong>Clausehound</strong> · Legislation you can trace to the section. · <a href="https://www.clausehound.com/">clausehound.com</a></div>
+  <div class="wrap"><strong>Clausehound</strong> · Legislation you can trace to the section. · Demo only: not reviewed by a lawyer, not legal advice. · <a href="https://www.clausehound.com/">clausehound.com</a></div>
 </footer>
 <script>
 (() => {
