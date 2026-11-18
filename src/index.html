@@ -1,6 +1,6 @@
 ---
 layout: base.html
-description: Clausehound is a patented legal knowledge engine. Statutes, regulations and contracts as structured, versioned, cited data, served to your apps and AI agents over GraphQL and MCP. Runs on your infrastructure, for any AI, with no lock-in.
+description: Patented legal knowledge engine for contract review and regulatory research. Statutes, regulations and contracts as versioned, cited data for your apps and AI agents, over GraphQL and MCP.
 permalink: /
 ---
 
@@ -16,8 +16,8 @@ permalink: /
   a few at a time filling with palette colours (src/ts/paw-pattern.ts).{% endcomment %}
   <div class="hero-paws" aria-hidden="true"></div>
   <div class="hero-copy">
-    <h6 class="subheading">Clausehound · Legal knowledge engine</h6>
-    <h1>Tracks the clauses that matter.</h1>
+    <h6 class="subheading">Clausehound · Since 2016</h6>
+    <h1>Legal knowledge engine for AI and lawyers.</h1>
     <p class="hero-lede">
       Clausehound turns statutes, regulations and contracts into a versioned clause model: git
       for the law. It runs where your data needs to live, and you connect from the AIs you
@@ -118,12 +118,16 @@ permalink: /
 <section class="content platform" id="platform">
   <div class="section-intro">
     <h6 class="subheading">What it is</h6>
-    <h2>One model for every legal document.</h2>
+    <h2>One data model for statutes, regulations and contracts.</h2>
     <p>
       A statute, a regulation and a supply agreement are the same thing to Clausehound: a document
       with versions, broken into a tree of clauses that can be tagged, compared and cited. Think
       of it as change control for legal documents: git for rules and regs. Your originals stay
       untouched; the model is a layer on top.
+    </p>
+    <p>
+      Lawyers use it for contract review, due diligence and regulatory research. Developers build
+      their own legal AI products on it, over GraphQL or MCP.
     </p>
   </div>
 
@@ -290,7 +294,7 @@ permalink: /
   <div class="cobalt-uses">
     <div class="cobalt-uses-copy">
       <h6 class="subheading">In production</h6>
-      <h2>Lawyers run real matters on it, every day.</h2>
+      <h2>Cobalt's lawyers use it on client work every day.</h2>
       <p>
         <a href="{{ site.cobaltUrl }}">Cobalt</a>, a tech-focused law firm, runs its legal services on
         Clausehound: Diligence Monster for due diligence, DealPrep for deal knowledge and
@@ -312,7 +316,7 @@ permalink: /
 <section class="content tint architecture" id="architecture">
   <div class="section-intro">
     <h6 class="subheading">Architecture</h6>
-    <h2>Hyper-efficient, by design.</h2>
+    <h2>Light on tokens and hardware.</h2>
     <p>
       You won't sign up, start small, and burn through your compute and AI budget in a week
       because the platform wastes tokens. The hard work happens once, at ingest. After that, a
@@ -327,16 +331,16 @@ permalink: /
   <div class="feature-grid">
     <article class="feature-card">
       <h6 class="subheading">Distributed</h6>
-      <h3>Yes, behind your own firewall.</h3>
+      <h3>Runs behind your own firewall.</h3>
       <p>
         No shared Clausehound cloud: the data layer runs where you need it, hosted by us, in your
-        cloud or on your own servers. Already approved your AI provider? Clausehound adds no new
-        party holding your documents. UUIDs everywhere and WebAssembly builds keep it portable.
+        cloud or on your own servers. Host it yourself with an AI provider you've already approved,
+        and Clausehound adds no new party holding your documents. UUIDs everywhere and WebAssembly builds keep it portable.
       </p>
     </article>
     <article class="feature-card">
       <h6 class="subheading">Speed</h6>
-      <h3>Tiny latency, tiny hosting bill.</h3>
+      <h3>Millisecond answers on modest servers.</h3>
       <p>
         The core is Rust: compiled, memory-safe and lean. Answers come back in milliseconds, and a
         full deployment runs comfortably on modest servers. It's how we run it ourselves.
@@ -353,15 +357,15 @@ permalink: /
     </article>
     <article class="feature-card">
       <h6 class="subheading">Guardrails</h6>
-      <h3>Less to read, less to get wrong.</h3>
+      <h3>A smaller context leaves less room to invent.</h3>
       <p>
         A model handed three cited clauses has far less room to invent than one handed a 400-page
-        PDF. Efficiency and accuracy come from the same place: structure.
+        PDF.
       </p>
     </article>
     <article class="feature-card">
       <h6 class="subheading">Change control</h6>
-      <h3>Git for rules and regs.</h3>
+      <h3>Version control for statutes and regulations.</h3>
       <p>
         Every amendment is a new, immutable version, chained to the last. Diff any two dates
         clause by clause, see what changed and why, and get flagged when a clause you rely on moves.
@@ -369,7 +373,7 @@ permalink: /
     </article>
     <article class="feature-card">
       <h6 class="subheading">Security</h6>
-      <h3>SOC 2, and files boxed in.</h3>
+      <h3>SOC 2 audited, with isolated file parsing.</h3>
       <p>
         SOC 2 audited. PDF parsing and OCR run in their own service on an
         isolated network. Single sign-on through Azure AD and OpenID Connect.
@@ -382,7 +386,7 @@ permalink: /
 <section class="content verification" id="verification">
   <div class="verification-copy">
     <h6 class="subheading">Verification</h6>
-    <h2>Cited, and checked against the law as it stood.</h2>
+    <h2>Every citation checked against the law in force on the date.</h2>
     <p>
       AI is genuinely useful in legal work, and used carelessly it can hurt you. Language models
       are fluent and sometimes wrong, and in law a confident wrong answer is the expensive kind.
@@ -454,7 +458,7 @@ permalink: /
 <section class="content tint data" id="data">
   <div class="section-intro">
     <h6 class="subheading">The knowledge base</h6>
-    <h2>Not US-centric. Built for wherever you work.</h2>
+    <h2>Official law from each jurisdiction, every version kept.</h2>
     <p>
       Most legal AI tries to one-shot answers from a model trained mostly on American law, and
       treats everywhere else as an edge case. Clausehound reads each jurisdiction's own official
@@ -513,7 +517,7 @@ permalink: /
 <section class="content integrations" id="integrations">
   <div class="section-intro">
     <h6 class="subheading">Integrations</h6>
-    <h2>Bring your own agent.</h2>
+    <h2>Connect Claude or any MCP client.</h2>
     <p>
       For agents, Clausehound speaks MCP, the open standard AI assistants use to connect to
       tools. Point Claude, or any MCP client, at your endpoint and it can search, compare and
@@ -593,12 +597,12 @@ permalink: /
 <section class="content tint history" id="history">
   <div class="history-intro">
     <h6 class="subheading">Track record</h6>
-    <h2>Not a wrapper. A decade in the making.</h2>
+    <h2>Building legal tech since 2016.</h2>
     <p>
       Clausehound isn't a thin layer over someone else's chatbot, built last year to chase a
       funding round. We've been structuring legal documents since 2016, doing machine learning on
       contracts with academic partners before anyone called it AI, and we patented the core. What
-      we sell is what already works in production, not what's trending.
+      we sell already works in production.
     </p>
   </div>
   {% comment %}Dates: 2016 from the team bio; 2018 from the Seneca HELIX post;
@@ -618,7 +622,7 @@ permalink: /
 <section class="content team" id="team">
   <div class="section-intro">
     <h6 class="subheading">Who builds it</h6>
-    <h2>Engineers and lawyers, since 2016.</h2>
+    <h2>Engineers and lawyers.</h2>
   </div>
   <div class="leaders">
     <article class="leader">

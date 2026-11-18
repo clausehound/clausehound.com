@@ -1,0 +1,72 @@
+{% comment %}
+  JSON-LD for search engines and the company-data scrapers (Crunchbase,
+  PitchBook and the like read schema.org before body text). Organization on
+  every page; the product and the patent only on the home page. Keep these
+  facts in step with the visible copy.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#org",
+      "name": "Clausehound Inc.",
+      "alternateName": "Clausehound",
+      "url": "{{ site.url }}/",
+      "logo": "{{ site.url }}/assets/favicon.png",
+      "image": "{{ site.url }}{{ site.image }}",
+      "description": {{ site.description | jsonify }},
+      "foundingDate": "{{ site.foundingYear }}",
+      "email": "{{ site.email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 Dundas St. East, Suite 1002",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "postalCode": "M5B 2G9",
+        "addressCountry": "CA"
+      },
+      "founder": { "@type": "Person", "name": "Rajah Lehal" },
+      "employee": [
+        { "@type": "Person", "name": "Joshua Koudys", "jobTitle": "Chief Technology Officer", "url": "{{ site.joshUrl }}" },
+        { "@type": "Person", "name": "Rajah Lehal", "jobTitle": "Founder" }
+      ],
+      "knowsAbout": ["Legal technology", "Legal AI", "Contract review", "Contract analysis", "Regulatory compliance", "Legislative version tracking", "Model Context Protocol"],
+      "sameAs": ["{{ site.linkedinUrl }}"]
+    }{% if page.url == "/" %},
+    {
+      "@type": "SoftwareApplication",
+      "@id": "{{ site.url }}/#product",
+      "name": "Clausehound",
+      "url": "{{ site.url }}/",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Legal knowledge engine",
+      "operatingSystem": "Web, self-hosted",
+      "description": {{ site.description | jsonify }},
+      "featureList": [
+        "Versioned statutes and regulations, every historical consolidation kept",
+        "Clause-by-clause comparison between any two versions",
+        "Contract review against playbooks, with lawyer verification",
+        "Citations checked against the version in force on the date asked about",
+        "MCP server for AI agents",
+        "GraphQL API",
+        "Self-hosted deployment",
+        "SOC 2 audited"
+      ],
+      "publisher": { "@id": "{{ site.url }}/#org" }
+    },
+    {
+      "@type": "CreativeWork",
+      "description": "United States patent for the Clausehound clause taxonomy.",
+      "name": "Clause Taxonomy System and Method for Structured Document Construction and Analysis",
+      "identifier": "{{ site.patent }}",
+      "creator": [
+        { "@type": "Person", "name": "Joshua Koudys" },
+        { "@type": "Person", "name": "Rajah Lehal" }
+      ],
+      "copyrightHolder": { "@id": "{{ site.url }}/#org" }
+    }{% endif %}
+  ]
+}
+</script>
